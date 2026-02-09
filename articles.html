@@ -1,0 +1,31 @@
+---
+layout: default
+title: Articles
+---
+
+<div class="container">
+    <h1>All Articles</h1>
+    <p style="color: var(--color-text-light); margin-bottom: 3rem;">
+        Technical documentation, tutorials, and guides on data engineering, API documentation, and more.
+    </p>
+
+    <div class="articles-grid">
+        {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
+        {% for article in sorted_articles %}
+        <div class="article-card">
+            <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+            {% if article.description %}
+            <p class="excerpt">{{ article.description }}</p>
+            {% endif %}
+            {% if article.tags %}
+            <div class="article-tags" style="margin-top: 1rem;">
+                {% for tag in article.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>

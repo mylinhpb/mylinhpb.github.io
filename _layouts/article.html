@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<article class="article-page">
+    <div class="container">
+        <header class="article-header">
+            <h1>{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="article-description">{{ page.description }}</p>
+            {% endif %}
+            {% if page.date %}
+            <time class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
+            {% endif %}
+            {% if page.tags %}
+            <div class="article-tags">
+                {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+
+        <div class="article-content">
+            {{ content }}
+        </div>
+    </div>
+</article>
