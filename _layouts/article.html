@@ -1,27 +1,74 @@
 ---
 layout: default
 ---
-<article class="article-page">
-    <div class="container">
+<div class="article-layout">
+    <aside class="article-sidebar">
+        <h3>Articles</h3>
+        <nav class="article-nav">
+            {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
+            {% for item in sorted_articles %}
+            <a href="{{ item.url | relative_url }}" class="{% if item.url == page.url %}active{% endif %}">
+                {{ item.title }}
+            </a>
+            {% endfor %}
+        </nav>
+    </aside>
+
+    <article class="article-main">
         <header class="article-header">
             <h1>{{ page.title }}</h1>
             {% if page.description %}
             <p class="article-description">{{ page.description }}</p>
             {% endif %}
-            {% if page.date %}
-            <time class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
-            {% endif %}
-            {% if page.tags %}
-            <div class="article-tags">
-                {% for tag in page.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %}
+            <div class="article-meta-bar">
+                {% if page.date %}
+                <time class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
+                {% endif %}
+                {% if page.tags %}
+                <div class="article-tags">
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
         </header>
 
         <div class="article-content">
             {{ content }}
         </div>
-    </div>
-</article>
+    </article>
+
+    <aside class="article-toc">
+        <div class="toc-wrapper">
+            <h3>On this page</h3>
+            <nav id="toc"></nav>
+        </div>
+    </aside>
+</div>
+
+<script>
+// Generate table of contents
+document.addEventListener('DOMContentLoaded', function() {
+    const content = document.querySelector('.article-content');
+    const toc = document.getElementById('toc');
+    const headings = content.querySelectorAll('h2, h3');
+    
+    if (headings.length === 0) {
+        document.querySelector('.article-toc').style.display = 'none';
+        return;
+    }
+    
+    headings.forEach((heading, index) => {
+        const id = heading.id || `heading-${index}`;
+        heading.id = id;
+        
+        const link = document.createElement('a');
+        link.href = `#${id}`;
+        link.textContent = heading.textContent;
+        link.className = heading.tagName.toLowerCase();
+        
+        toc.appendChild(link);
+    });
+});
+</script>

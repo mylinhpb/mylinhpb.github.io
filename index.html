@@ -10,16 +10,25 @@ title: Home
 </div>
 
 <div class="container">
-    <h2>Featured Articles</h2>
-    <div class="articles-grid">
+    <h2>Recent Articles</h2>
+    <div class="articles-list">
         {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
-        {% for article in sorted_articles limit: 6 %}
-        <div class="article-card">
-            <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
-            {% if article.description %}
-            <p class="excerpt">{{ article.description }}</p>
-            {% endif %}
-            <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        {% for article in sorted_articles %}
+        <div class="article-list-item">
+            <div class="article-meta">
+                <time class="article-date-small">{{ article.date | date: "%b %d, %Y" }}</time>
+                {% if article.tags %}
+                <div class="article-type">
+                    <span class="type-badge">{{ article.tags[0] }}</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="article-info">
+                <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+                {% if article.description %}
+                <p class="excerpt">{{ article.description }}</p>
+                {% endif %}
+            </div>
         </div>
         {% endfor %}
     </div>

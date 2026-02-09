@@ -1,9 +1,7 @@
 ---
-layout: default
+layout: page
 title: About
 ---
-
-<div class="container" style="max-width: 700px;">
 
 # About Me
 
@@ -31,5 +29,3 @@ Feel free to reach out if you'd like to discuss technical writing, documentation
 - **Email**: your.email@example.com
 - **LinkedIn**: [Your Profile](https://linkedin.com/in/yourprofile)
 - **GitHub**: [mylinhpb](https://github.com/mylinhpb)
-
-</div>
