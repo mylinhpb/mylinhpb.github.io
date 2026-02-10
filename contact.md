@@ -6,7 +6,7 @@ title: Contact
 <div class="contact-page-hero">
   <h1>Let's Connect</h1>
   <p class="contact-page-lead">
-    I'm open to discussing technical writing opportunities, documentation strategy, or potential collaborations.
+    I'm always happy to chat about technical writing, documentation strategy, or potential collaborations.
     Feel free to reach out through any of the channels below.
   </p>
 </div>

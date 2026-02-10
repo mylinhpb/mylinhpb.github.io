@@ -24,7 +24,7 @@ kramdown:
 collections:
   articles:
     output: true
-    permalink: /articles/:path/
+    permalink: /writing-samples/:path/
   case_studies:
     output: true
     permalink: /case-studies/:path/

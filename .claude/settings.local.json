@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(for file in _case_studies/*.md)",
+      "Bash(do sed -i '1s/^/---\\\\n/' \"$file\")",
+      "Bash(done)",
+      "Bash(do sed -i '/^---$/,/^\\\\[View.*\\\\]/{ /^---$/d; }' \"$file\")",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRedesign portfolio with enhanced homepage, case studies, and improved navigation\n\nMajor enhancements to create a professional, comprehensive technical writing portfolio:\n\n- Homepage: Added stats section, skills with SVG icons, simplified CTAs for case studies and writing samples\n- Case Studies: Created 4 detailed case studies \\(Dawiso Documentation, Dawiso Academy, Dataddo, API Design\\) with consistent layouts and TOC navigation\n- About page: Reorganized with sticky section navigation, visual skills cards, and streamlined content\n- Contact page: New dedicated page with copy-to-clipboard email functionality\n- Layouts: Removed busy left sidebar from articles, added TOC navigation to case studies and pages\n- Styling: Comprehensive CSS updates for better spacing, hover effects, and visual hierarchy\n- Navigation: Added active state highlighting for current page\n\nAll changes improve user experience and better showcase documentation expertise with measurable impact.\n\nCo-Authored-By: Claude Sonnet 4.5 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRename articles to writing-samples for clearer URL structure\n\nUpdated all references from /articles to /writing-samples throughout the site for better clarity and consistency with navigation naming.\n\nChanges:\n- Renamed articles.html to writing-samples.html\n- Renamed articles/ directory to writing-samples/\n- Updated collection permalink in _config.yml\n- Updated all navigation links and filter pages\n- Updated homepage CTA\n\nCo-Authored-By: Claude Sonnet 4.5 \\(1M context\\) <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}

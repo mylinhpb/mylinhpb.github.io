@@ -31,7 +31,7 @@ title: About
 <h2 id="experience">Professional Experience</h2>
 
 ### Documentation Specialist at Dawiso
-*April 2024 – Present | Prague, Czechia*
+*April 2024 – Present*
 
 I own and scale end-to-end documentation for a data governance platform with 500+ articles and 40% ticket deflection:
 
@@ -67,13 +67,13 @@ Built user and developer documentation of 700+ articles with 30% ticket deflecti
       </svg>
     </div>
     <h3>Documentation & Writing</h3>
-    <ul>
-      <li>Developer & API Documentation</li>
-      <li>Technical Tutorials & Integration Guides</li>
-      <li>Information Architecture & Content Modeling</li>
-      <li>Documentation Strategy & Content Standards</li>
-      <li>Release Notes & Technical Communication</li>
-    </ul>
+  
+    <div class="skill-level">Developer & API documentation</div>
+    <div class="skill-level">Technical tutorials & integration guides</div>
+    <div class="skill-level">Information architecture & content modeling</div>
+    <div class="skill-level">Documentation strategy, standards & governance</div>
+    <div class="skill-level">Release notes & product communication</div>
+    
   </div>
 
   <div class="expertise-card">
