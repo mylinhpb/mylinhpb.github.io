@@ -42,118 +42,119 @@ layout: default
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Generate table of contents
-    const content = document.querySelector('.article-content');
-    const toc = document.getElementById('toc');
-    const headings = content.querySelectorAll('h2, h3');
+    document.addEventListener('DOMContentLoaded', function () {
+        // Generate table of contents
+        const content = document.querySelector('.article-content');
+        const toc = document.getElementById('toc');
+        const headings = content.querySelectorAll('h2, h3');
 
-    if (headings.length === 0) {
-        document.querySelector('.article-toc').style.display = 'none';
-    } else {
-        headings.forEach((heading, index) => {
-            const id = heading.id || `heading-${index}`;
-            heading.id = id;
+        if (headings.length === 0) {
+            document.querySelector('.article-toc').style.display = 'none';
+        } else {
+            headings.forEach((heading, index) => {
+                const id = heading.id || `heading-${index}`;
+                heading.id = id;
 
-            const link = document.createElement('a');
-            link.href = `#${id}`;
-            link.textContent = heading.textContent;
-            link.className = heading.tagName.toLowerCase();
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                link.textContent = heading.textContent;
+                link.className = heading.tagName.toLowerCase();
 
-            toc.appendChild(link);
-        });
-    }
-
-    // Add copy buttons to code blocks
-    const codeBlocks = document.querySelectorAll('.article-content pre');
-
-    codeBlocks.forEach(function(codeBlock) {
-        // Create wrapper
-        const wrapper = document.createElement('div');
-        wrapper.className = 'code-block-wrapper';
-
-        // Wrap the code block
-        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
-        wrapper.appendChild(codeBlock);
-
-        // Create copy button
-        const copyButton = document.createElement('button');
-        copyButton.className = 'copy-code-button';
-        copyButton.textContent = 'Copy';
-
-        // Add click handler
-        copyButton.addEventListener('click', function() {
-            const code = codeBlock.querySelector('code');
-            const text = code ? code.textContent : codeBlock.textContent;
-
-            navigator.clipboard.writeText(text).then(function() {
-                copyButton.textContent = 'Copied!';
-                copyButton.classList.add('copied');
-
-                setTimeout(function() {
-                    copyButton.textContent = 'Copy';
-                    copyButton.classList.remove('copied');
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Failed to copy:', err);
-                copyButton.textContent = 'Error';
+                toc.appendChild(link);
             });
+        }
+
+        // Add copy buttons to code blocks
+        const codeBlocks = document.querySelectorAll('.article-content pre');
+
+        codeBlocks.forEach(function (codeBlock) {
+            // Create wrapper
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-block-wrapper';
+
+            // Wrap the code block
+            codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+            wrapper.appendChild(codeBlock);
+
+            // Create copy button
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-code-button';
+            copyButton.textContent = 'Copy';
+
+            // Add click handler
+            copyButton.addEventListener('click', function () {
+                const code = codeBlock.querySelector('code');
+                const text = code ? code.textContent : codeBlock.textContent;
+
+                navigator.clipboard.writeText(text).then(function () {
+                    copyButton.textContent = 'Copied!';
+                    copyButton.classList.add('copied');
+
+                    setTimeout(function () {
+                        copyButton.textContent = 'Copy';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                }).catch(function (err) {
+                    console.error('Failed to copy:', err);
+                    copyButton.textContent = 'Error';
+                });
+            });
+
+            wrapper.appendChild(copyButton);
         });
 
-        wrapper.appendChild(copyButton);
+        // Transform GitHub-style callouts
+        const blockquotes = document.querySelectorAll('.article-content blockquote, .page-content blockquote');
+
+        blockquotes.forEach(function (blockquote) {
+            const firstPara = blockquote.querySelector('p');
+            if (!firstPara) return;
+
+            const text = firstPara.textContent.trim();
+            const match = text.match(/^\[!(NOTE|TIP|WARNING|IMPORTANT)\]/i);
+
+            if (match) {
+                const type = match[1].toLowerCase();
+                const icons = {
+                    'note': '📘',
+                    'tip': '💡',
+                    'warning': '⚠️',
+                    'important': '❗'
+                };
+                const labels = {
+                    'note': 'Note',
+                    'tip': 'Tip',
+                    'warning': 'Warning',
+                    'important': 'Important'
+                };
+
+                // Remove the [!TYPE] from the first paragraph while preserving inline HTML
+                const labelRegex = /^\[!(NOTE|TIP|WARNING|IMPORTANT)\]\s*/i;
+                firstPara.innerHTML = firstPara.innerHTML.replace(labelRegex, '');
+
+                // Transform blockquote to callout
+                blockquote.classList.add('callout', type);
+
+                // Create title
+                const title = document.createElement('div');
+                title.className = 'callout-title';
+                title.innerHTML = '<span class="callout-icon">' + icons[type] + '</span>' + labels[type];
+
+                // Insert title at the beginning
+                blockquote.insertBefore(title, blockquote.firstChild);
+            }
+        });
+
+        // Open all external links in new tab
+        const links = document.querySelectorAll('a');
+        const currentDomain = window.location.hostname;
+
+        links.forEach(function (link) {
+            // Check if it's an external link
+            if (link.hostname && link.hostname !== currentDomain) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
     });
-
-    // Transform GitHub-style callouts
-    const blockquotes = document.querySelectorAll('.article-content blockquote, .page-content blockquote');
-
-    blockquotes.forEach(function(blockquote) {
-        const firstPara = blockquote.querySelector('p');
-        if (!firstPara) return;
-
-        const text = firstPara.textContent.trim();
-        const match = text.match(/^\[!(NOTE|TIP|WARNING|IMPORTANT)\]/i);
-
-        if (match) {
-            const type = match[1].toLowerCase();
-            const icons = {
-                'note': '📘',
-                'tip': '💡',
-                'warning': '⚠️',
-                'important': '❗'
-            };
-            const labels = {
-                'note': 'Note',
-                'tip': 'Tip',
-                'warning': 'Warning',
-                'important': 'Important'
-            };
-
-            // Remove the [!TYPE] from the text
-            firstPara.textContent = text.replace(/^\[!(NOTE|TIP|WARNING|IMPORTANT)\]\s*/i, '');
-
-            // Transform blockquote to callout
-            blockquote.classList.add('callout', type);
-
-            // Create title
-            const title = document.createElement('div');
-            title.className = 'callout-title';
-            title.innerHTML = '<span class="callout-icon">' + icons[type] + '</span>' + labels[type];
-
-            // Insert title at the beginning
-            blockquote.insertBefore(title, blockquote.firstChild);
-        }
-    });
-
-    // Open all external links in new tab
-    const links = document.querySelectorAll('a');
-    const currentDomain = window.location.hostname;
-
-    links.forEach(function(link) {
-        // Check if it's an external link
-        if (link.hostname && link.hostname !== currentDomain) {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-        }
-    });
-});
 </script>

@@ -26,7 +26,7 @@ title: Writing Samples
     </div>
 
     <div class="articles-grid">
-        {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
+        {% assign sorted_articles = site.articles | sort: 'title' }
         {% for article in sorted_articles %}
         <div class="article-card">
             {% if article.tags and article.tags.size > 0 %}

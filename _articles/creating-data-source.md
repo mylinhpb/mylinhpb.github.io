@@ -46,4 +46,4 @@ Well done, your new ***data source*** is ready!
 
 
 > [!NOTE]
-> If you want to extract and load historical data, see [our articles on data backfilling]https://docs.dataddo.com/docs/data-backfilling).
+> If you want to extract and load historical data, see [our articles on data backfilling](https://docs.dataddo.com/docs/data-backfilling).
