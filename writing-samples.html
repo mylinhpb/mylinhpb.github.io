@@ -26,25 +26,31 @@ title: Writing Samples
     </div>
 
     <div class="articles-grid">
-        {% assign sorted_articles = site.articles | sort: 'title' }
+        {% assign sorted_articles = site.articles | sort: 'title' %}
         {% for article in sorted_articles %}
-        <div class="article-card">
-            {% if article.tags and article.tags.size > 0 %}
-            <div class="article-type-badge">{{ article.tags[0] }}</div>
-            {% endif %}
-            <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
-            {% if article.description %}
-            <p class="excerpt">{{ article.description }}</p>
-            {% endif %}
-            {% if article.secondary_tags %}
-            <div class="article-tags" style="margin-top: 1rem;">
-                {% for tag in article.secondary_tags %}
-                <span class="secondary-tag">{{ tag }}</span>
-                {% endfor %}
+            <div class="article-card">
+                {% if article.tags and article.tags.size > 0 %}
+                    <div class="article-type-badge">{{ article.tags[0] }}</div>
+                {% endif %}
+
+                <h3>
+                    <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+                </h3>
+
+                {% if article.description %}
+                    <p class="excerpt">{{ article.description }}</p>
+                {% endif %}
+
+                {% if article.secondary_tags %}
+                    <div class="article-tags" style="margin-top: 1rem;">
+                        {% for tag in article.secondary_tags %}
+                            <span class="secondary-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
             </div>
-            {% endif %}
-            <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
-        </div>
         {% endfor %}
     </div>
 </div>

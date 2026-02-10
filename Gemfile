@@ -1,9 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-gem "webrick", "~> 1.8"
+# Use the GitHub Pages gem so that the Jekyll
+# version and plugins match what GitHub builds with.
+gem "github-pages", group: :jekyll_plugins
 
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-seo-tag"
-end
+# Needed for local `bundle exec jekyll serve` on Ruby 3+
+gem "webrick", "~> 1.8"
