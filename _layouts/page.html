@@ -6,3 +6,18 @@ layout: default
         {{ content }}
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Open all external links in new tab
+    const links = document.querySelectorAll('.page-content a');
+    const currentDomain = window.location.hostname;
+
+    links.forEach(function(link) {
+        if (link.hostname && link.hostname !== currentDomain) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+});
+</script>

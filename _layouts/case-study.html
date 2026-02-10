@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<div class="case-study-hero">
+    <div class="container">
+        <a href="{{ '/case-studies' | relative_url }}" class="back-link">← Back to Case Studies</a>
+        {% if page.company %}
+        <div class="case-study-company">{{ page.company }}</div>
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="case-study-lead">{{ page.description }}</p>
+        {% endif %}
+
+        {% if page.metrics %}
+        <div class="case-study-metrics">
+            {% for metric in page.metrics %}
+            <div class="metric-item">
+                <div class="metric-value">{{ metric.value }}</div>
+                <div class="metric-label">{{ metric.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if page.link %}
+        <div class="case-study-link">
+            <a href="{{ page.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                {% if page.link_text %}{{ page.link_text }}{% else %}View Live Documentation{% endif %} →
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="case-study-layout-wrapper">
+    <div class="container">
+        <div class="case-study-with-toc">
+            <div class="case-study-content">
+                {{ content }}
+            </div>
+
+            <aside class="case-study-toc">
+                <div class="toc-wrapper">
+                    <h3>On this page</h3>
+                    <nav id="case-study-toc"></nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Generate table of contents
+    const content = document.querySelector('.case-study-content');
+    const toc = document.getElementById('case-study-toc');
+    const headings = content.querySelectorAll('h2, h3');
+
+    if (headings.length === 0) {
+        document.querySelector('.case-study-toc').style.display = 'none';
+    } else {
+        headings.forEach((heading, index) => {
+            const id = heading.id || `heading-${index}`;
+            heading.id = id;
+
+            const link = document.createElement('a');
+            link.href = `#${id}`;
+            link.textContent = heading.textContent;
+            link.className = heading.tagName.toLowerCase();
+
+            toc.appendChild(link);
+        });
+    }
+});
+</script>

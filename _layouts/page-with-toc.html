@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<div class="page-with-toc-layout">
+    <div class="container">
+        <div class="page-with-toc">
+            <div class="page-content">
+                {{ content }}
+            </div>
+
+            <aside class="page-toc">
+                <div class="toc-wrapper">
+                    <h3>On this page</h3>
+                    <nav id="page-toc"></nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Generate table of contents
+    const content = document.querySelector('.page-content');
+    const toc = document.getElementById('page-toc');
+    const headings = content.querySelectorAll('h2, h3');
+
+    if (headings.length === 0) {
+        document.querySelector('.page-toc').style.display = 'none';
+    } else {
+        headings.forEach((heading, index) => {
+            const id = heading.id || `heading-${index}`;
+            heading.id = id;
+
+            const link = document.createElement('a');
+            link.href = `#${id}`;
+            link.textContent = heading.textContent;
+            link.className = heading.tagName.toLowerCase();
+
+            toc.appendChild(link);
+        });
+    }
+});
+</script>

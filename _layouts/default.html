@@ -15,9 +15,11 @@
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
             <div class="nav-links">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="{{ '/articles' | relative_url }}">Articles</a>
-                <a href="{{ '/about' | relative_url }}">About</a>
+                <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+                <a href="{{ '/articles' | relative_url }}" class="{% if page.url contains '/articles' %}active{% endif %}">Writing Samples</a>
+                <a href="{{ '/case-studies' | relative_url }}" class="{% if page.url contains '/case-studies' %}active{% endif %}">Case Studies</a>
+                <a href="{{ '/about' | relative_url }}" class="{% if page.url contains '/about' %}active{% endif %}">About</a>
+                <a href="{{ '/contact' | relative_url }}" class="{% if page.url contains '/contact' %}active{% endif %}">Contact</a>
             </div>
         </div>
     </nav>
@@ -31,5 +33,18 @@
             <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    // Open all external links in new tab (site-wide)
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            if (link.hostname && link.hostname !== window.location.hostname && link.hostname !== '') {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    });
+    </script>
 </body>
 </html>

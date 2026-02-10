@@ -1,26 +1,46 @@
 ---
 layout: default
-title: Articles
+title: Writing Samples
 ---
 
 <div class="container">
-    <h1>All Articles</h1>
-    <p style="color: var(--color-text-light); margin-bottom: 3rem;">
+    <h1>Writing Samples</h1>
+    <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">
         Technical documentation, tutorials, and guides on data engineering, API documentation, and more.
     </p>
+
+    <div style="background: white; border: 1px solid var(--color-border); border-radius: 8px; padding: 1.5rem; margin-bottom: 3rem;">
+        <p style="margin: 0; line-height: 1.7;">
+            I use the <a href="https://diataxis.fr/" target="_blank" rel="noopener noreferrer" style="font-weight: 600;">Diátaxis framework</a> as a rough guide to maintain consistency across my writing. Below, you can filter articles based on how they fit within this framework—though I apply it flexibly rather than strictly.
+        </p>
+    </div>
+
+    <!-- Tag Filter Navigation -->
+    <div class="tag-filter-nav" style="margin-bottom: 3rem;">
+        <span style="color: var(--color-text-light); margin-right: 1rem;">Filter by type:</span>
+        <a href="{{ '/articles/' | relative_url }}" class="filter-tag active">All</a>
+        <a href="{{ '/articles/tutorial/' | relative_url }}" class="filter-tag">Tutorial</a>
+        <a href="{{ '/articles/how-to-guide/' | relative_url }}" class="filter-tag">How-to guide</a>
+        <a href="{{ '/articles/how-to-blog/' | relative_url }}" class="filter-tag">How-to blog</a>
+        <a href="{{ '/articles/reference/' | relative_url }}" class="filter-tag">Reference</a>
+        <a href="{{ '/articles/resource/' | relative_url }}" class="filter-tag">Resource</a>
+    </div>
 
     <div class="articles-grid">
         {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
         {% for article in sorted_articles %}
         <div class="article-card">
+            {% if article.tags and article.tags.size > 0 %}
+            <div class="article-type-badge">{{ article.tags[0] }}</div>
+            {% endif %}
             <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
             {% if article.description %}
             <p class="excerpt">{{ article.description }}</p>
             {% endif %}
-            {% if article.tags %}
+            {% if article.secondary_tags %}
             <div class="article-tags" style="margin-top: 1rem;">
-                {% for tag in article.tags %}
-                <span class="tag">{{ tag }}</span>
+                {% for tag in article.secondary_tags %}
+                <span class="secondary-tag">{{ tag }}</span>
                 {% endfor %}
             </div>
             {% endif %}

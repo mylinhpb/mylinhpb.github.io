@@ -8,17 +8,26 @@ baseurl: ""
 # Author
 author:
   name: My Linh Phung
-  email: your.email@example.com
+  email: mylinh.pb@gmail.com
 
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: text
+    css_class: 'highlight'
 
 # Collections
 collections:
   articles:
     output: true
     permalink: /articles/:path/
+  case_studies:
+    output: true
+    permalink: /case-studies/:path/
 
 # Defaults
 defaults:
@@ -32,6 +41,11 @@ defaults:
       type: "posts"
     values:
       layout: "article"
+  - scope:
+      path: ""
+      type: "case_studies"
+    values:
+      layout: "case-study"
 
 # Exclude from build
 exclude:

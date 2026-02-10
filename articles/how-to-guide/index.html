@@ -1,0 +1,45 @@
+---
+layout: default
+title: How-to Guide Writing Samples
+---
+
+<div class="container">
+    <h1>How-to Guide Writing Samples</h1>
+    <p style="color: var(--color-text-light); margin-bottom: 2rem;">
+        Practical guides to accomplish specific tasks and solve problems.
+    </p>
+
+    <!-- Tag Filter Navigation -->
+    <div class="tag-filter-nav" style="margin-bottom: 3rem;">
+        <span style="color: var(--color-text-light); margin-right: 1rem;">Filter by type:</span>
+        <a href="{{ '/articles/' | relative_url }}" class="filter-tag">All</a>
+        <a href="{{ '/articles/tutorial/' | relative_url }}" class="filter-tag">Tutorial</a>
+        <a href="{{ '/articles/how-to-guide/' | relative_url }}" class="filter-tag active">How-to guide</a>
+        <a href="{{ '/articles/how-to-blog/' | relative_url }}" class="filter-tag">How-to blog</a>
+        <a href="{{ '/articles/reference/' | relative_url }}" class="filter-tag">Reference</a>
+        <a href="{{ '/articles/resource/' | relative_url }}" class="filter-tag">Resource</a>
+    </div>
+
+    <div class="articles-grid">
+        {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
+        {% for article in sorted_articles %}
+            {% if article.tags contains "How-to guide" %}
+            <div class="article-card">
+                <div class="article-type-badge">{{ article.tags[0] }}</div>
+                <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+                {% if article.description %}
+                <p class="excerpt">{{ article.description }}</p>
+                {% endif %}
+                {% if article.secondary_tags %}
+                <div class="article-tags" style="margin-top: 1rem;">
+                    {% for tag in article.secondary_tags %}
+                    <span class="secondary-tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

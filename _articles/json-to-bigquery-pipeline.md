@@ -2,7 +2,8 @@
 title: "JSON to Google BigQuery: Data Pipeline in Less than 2 Minutes"
 description: "Learn three methods to load JSON data into Google BigQuery, from manual uploads to automated data pipelines."
 date: 2024-06-15
-tags: [BigQuery, JSON, Data Pipeline, ETL, Google Cloud]
+tags: [How-to blog]
+secondary_tags: [BigQuery, JSON, Data Pipeline, ETL, Google Cloud]
 ---
 
 > The following is the updated version of a blog article originally published on [Dataddo's blog](https://blog.dataddo.com/json-to-google-bigquery-data-pipeline-in-less-than-2-minutes).
@@ -121,13 +122,11 @@ Next, [create your destination](https://app.dataddo.com/destinations) by choosin
 [Source creation](https://app.dataddo.com/sources) is the only part that takes a bit longer but only if you need to do some transformations. Other than that, you only need the URL of your JSON file. In this example, we used NASA’s global landslide data.
 
 If you use Dataddo, it doesn’t matter whether or not the file is Newly Delimited, or if your date values are in there right format as the platform will take care of this for you.
-
 ![Dataddo - JSON source creation](https://blog.dataddo.com/hs-fs/hubfs/Dataddo%203%20-%20JSON%20source%20creation.png?width=2424&name=Dataddo%203%20-%20JSON%20source%20creation.png)
 
 
 ### 1:01-1:30 Create Flow
 Finally, create a flow by connecting your data source and destination.
-
 ![Dataddo - Create flow](https://blog.dataddo.com/hs-fs/hubfs/Dataddo%204%20-%20create%20flow.png?width=2424&name=Dataddo%204%20-%20create%20flow.png)
 
 Afterward, all that’s left is checking your data in Google BigQuery!

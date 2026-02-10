@@ -2,7 +2,8 @@
 title: "Transformation Pipeline Stages Reference"
 description: "Comprehensive reference guide for transformation pipeline stages and their options."
 date: 2024-05-15
-tags: [Reference, Transformation, Pipeline, MongoDB, Documentation]
+tags: [Reference]
+secondary_tags: [Transformation, Pipeline, MongoDB, Documentation]
 ---
 
 > The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/transformation-pipeline-stages).

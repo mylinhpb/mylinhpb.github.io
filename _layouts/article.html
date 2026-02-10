@@ -1,74 +1,159 @@
 ---
 layout: default
 ---
-<div class="article-layout">
-    <aside class="article-sidebar">
-        <h3>Articles</h3>
-        <nav class="article-nav">
-            {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
-            {% for item in sorted_articles %}
-            <a href="{{ item.url | relative_url }}" class="{% if item.url == page.url %}active{% endif %}">
-                {{ item.title }}
-            </a>
-            {% endfor %}
-        </nav>
-    </aside>
+<div class="article-layout-simple">
+    <div class="container">
+        <div class="article-with-toc">
+            <article class="article-main">
+                <header class="article-header">
+                    {% if page.tags and page.tags.size > 0 %}
+                    <div style="margin-bottom: 1rem;">
+                        <span class="type-badge">{{ page.tags[0] }}</span>
+                    </div>
+                    {% endif %}
+                    <h1>{{ page.title }}</h1>
+                    {% if page.description %}
+                    <p class="article-description">{{ page.description }}</p>
+                    {% endif %}
+                    {% if page.secondary_tags %}
+                    <div class="article-meta-bar">
+                        <div class="article-tags">
+                            {% for tag in page.secondary_tags %}
+                            <span class="secondary-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </header>
 
-    <article class="article-main">
-        <header class="article-header">
-            <h1>{{ page.title }}</h1>
-            {% if page.description %}
-            <p class="article-description">{{ page.description }}</p>
-            {% endif %}
-            <div class="article-meta-bar">
-                {% if page.date %}
-                <time class="article-date">{{ page.date | date: "%B %d, %Y" }}</time>
-                {% endif %}
-                {% if page.tags %}
-                <div class="article-tags">
-                    {% for tag in page.tags %}
-                    <span class="tag">{{ tag }}</span>
-                    {% endfor %}
+                <div class="article-content">
+                    {{ content }}
                 </div>
-                {% endif %}
-            </div>
-        </header>
+            </article>
 
-        <div class="article-content">
-            {{ content }}
+            <aside class="article-toc">
+                <div class="toc-wrapper">
+                    <h3>On this page</h3>
+                    <nav id="toc"></nav>
+                </div>
+            </aside>
         </div>
-    </article>
-
-    <aside class="article-toc">
-        <div class="toc-wrapper">
-            <h3>On this page</h3>
-            <nav id="toc"></nav>
-        </div>
-    </aside>
+    </div>
 </div>
 
 <script>
-// Generate table of contents
 document.addEventListener('DOMContentLoaded', function() {
+    // Generate table of contents
     const content = document.querySelector('.article-content');
     const toc = document.getElementById('toc');
     const headings = content.querySelectorAll('h2, h3');
-    
+
     if (headings.length === 0) {
         document.querySelector('.article-toc').style.display = 'none';
-        return;
+    } else {
+        headings.forEach((heading, index) => {
+            const id = heading.id || `heading-${index}`;
+            heading.id = id;
+
+            const link = document.createElement('a');
+            link.href = `#${id}`;
+            link.textContent = heading.textContent;
+            link.className = heading.tagName.toLowerCase();
+
+            toc.appendChild(link);
+        });
     }
-    
-    headings.forEach((heading, index) => {
-        const id = heading.id || `heading-${index}`;
-        heading.id = id;
-        
-        const link = document.createElement('a');
-        link.href = `#${id}`;
-        link.textContent = heading.textContent;
-        link.className = heading.tagName.toLowerCase();
-        
-        toc.appendChild(link);
+
+    // Add copy buttons to code blocks
+    const codeBlocks = document.querySelectorAll('.article-content pre');
+
+    codeBlocks.forEach(function(codeBlock) {
+        // Create wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+
+        // Wrap the code block
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
+
+        // Create copy button
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-code-button';
+        copyButton.textContent = 'Copy';
+
+        // Add click handler
+        copyButton.addEventListener('click', function() {
+            const code = codeBlock.querySelector('code');
+            const text = code ? code.textContent : codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(function() {
+                copyButton.textContent = 'Copied!';
+                copyButton.classList.add('copied');
+
+                setTimeout(function() {
+                    copyButton.textContent = 'Copy';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy:', err);
+                copyButton.textContent = 'Error';
+            });
+        });
+
+        wrapper.appendChild(copyButton);
+    });
+
+    // Transform GitHub-style callouts
+    const blockquotes = document.querySelectorAll('.article-content blockquote, .page-content blockquote');
+
+    blockquotes.forEach(function(blockquote) {
+        const firstPara = blockquote.querySelector('p');
+        if (!firstPara) return;
+
+        const text = firstPara.textContent.trim();
+        const match = text.match(/^\[!(NOTE|TIP|WARNING|IMPORTANT)\]/i);
+
+        if (match) {
+            const type = match[1].toLowerCase();
+            const icons = {
+                'note': '📘',
+                'tip': '💡',
+                'warning': '⚠️',
+                'important': '❗'
+            };
+            const labels = {
+                'note': 'Note',
+                'tip': 'Tip',
+                'warning': 'Warning',
+                'important': 'Important'
+            };
+
+            // Remove the [!TYPE] from the text
+            firstPara.textContent = text.replace(/^\[!(NOTE|TIP|WARNING|IMPORTANT)\]\s*/i, '');
+
+            // Transform blockquote to callout
+            blockquote.classList.add('callout', type);
+
+            // Create title
+            const title = document.createElement('div');
+            title.className = 'callout-title';
+            title.innerHTML = '<span class="callout-icon">' + icons[type] + '</span>' + labels[type];
+
+            // Insert title at the beginning
+            blockquote.insertBefore(title, blockquote.firstChild);
+        }
+    });
+
+    // Open all external links in new tab
+    const links = document.querySelectorAll('a');
+    const currentDomain = window.location.hostname;
+
+    links.forEach(function(link) {
+        // Check if it's an external link
+        if (link.hostname && link.hostname !== currentDomain) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
     });
 });
 </script>

@@ -2,7 +2,8 @@
 title: "How to Write a Transformation Pipeline Script"
 description: "A comprehensive guide to constructing data transformation scripts using JSON-like syntax similar to MongoDB's aggregation framework."
 date: 2024-05-20
-tags: [Data Transformation, Pipeline, MongoDB, JSON, ETL]
+tags: [How-to guide]
+secondary_tags: [Data Transformation, Pipeline, MongoDB, JSON, ETL]
 ---
 
 > The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/transformation-pipeline-guide). Adjusted for MD in Github.

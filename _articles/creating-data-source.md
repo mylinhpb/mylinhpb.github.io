@@ -2,7 +2,8 @@
 title: "How to Create a Data Source"
 description: "Step-by-step tutorial on configuring a data source to extract data from your services."
 date: 2024-04-10
-tags: [Tutorial, Data Source, Configuration, Quickstart]
+tags: [Tutorial]
+secondary_tags: [Data Source, Configuration, Quickstart]
 ---
 
 > The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/creating-a-data-source). Adjusted for MD in Github.

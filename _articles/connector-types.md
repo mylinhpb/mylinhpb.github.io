@@ -2,7 +2,8 @@
 title: "Types of Connectors"
 description: "Understanding the different types of connectors available for data extraction: fixed-schema, custom-schema, and universal connectors."
 date: 2024-03-25
-tags: [Connectors, Data Integration, API, Documentation]
+tags: [Resource]
+secondary_tags: [Connectors, Data Integration, API, Documentation]
 ---
 
 > The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/connectors). Adjusted for MD in Github.
