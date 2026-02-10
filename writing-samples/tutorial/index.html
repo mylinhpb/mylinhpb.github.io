@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Tutorial Writing Samples
+title: Tutorials
 ---
 
 <div class="container">
-    <h1>Tutorial Writing Samples</h1>
+    <h1>Tutorials</h1>
     <p style="color: var(--color-text-light); margin-bottom: 2rem;">
-        Step-by-step tutorials for learning new concepts and technologies.
+        Tutorials are learning-oriented, step-by-step lessons that guide users through new concepts by example.
     </p>
 
     <!-- Tag Filter Navigation -->
@@ -23,23 +23,23 @@ title: Tutorial Writing Samples
     <div class="articles-grid">
         {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
         {% for article in sorted_articles %}
-            {% if article.tags contains "Tutorial" %}
-            <div class="article-card">
-                <div class="article-type-badge">{{ article.tags[0] }}</div>
-                <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
-                {% if article.description %}
-                <p class="excerpt">{{ article.description }}</p>
-                {% endif %}
-                {% if article.secondary_tags %}
-                <div class="article-tags" style="margin-top: 1rem;">
-                    {% for tag in article.secondary_tags %}
-                    <span class="secondary-tag">{{ tag }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        {% if article.tags contains "Tutorial" %}
+        <div class="article-card">
+            <div class="article-type-badge">{{ article.tags[0] }}</div>
+            <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+            {% if article.description %}
+            <p class="excerpt">{{ article.description }}</p>
+            {% endif %}
+            {% if article.secondary_tags %}
+            <div class="article-tags" style="margin-top: 1rem;">
+                {% for tag in article.secondary_tags %}
+                <span class="secondary-tag">{{ tag }}</span>
+                {% endfor %}
             </div>
             {% endif %}
+            <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>

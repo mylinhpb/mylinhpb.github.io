@@ -6,7 +6,8 @@ title: Reference Articles
 <div class="container">
     <h1>Reference Articles</h1>
     <p style="color: var(--color-text-light); margin-bottom: 2rem;">
-        Comprehensive reference documentation and technical specifications.
+        Reference articles are fact-based, structured descriptions of systems, APIs, or tools presented without
+        additional explanation or instruction.
     </p>
 
     <!-- Tag Filter Navigation -->
@@ -23,23 +24,23 @@ title: Reference Articles
     <div class="articles-grid">
         {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
         {% for article in sorted_articles %}
-            {% if article.tags contains "Reference" %}
-            <div class="article-card">
-                <div class="article-type-badge">{{ article.tags[0] }}</div>
-                <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
-                {% if article.description %}
-                <p class="excerpt">{{ article.description }}</p>
-                {% endif %}
-                {% if article.secondary_tags %}
-                <div class="article-tags" style="margin-top: 1rem;">
-                    {% for tag in article.secondary_tags %}
-                    <span class="secondary-tag">{{ tag }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        {% if article.tags contains "Reference" %}
+        <div class="article-card">
+            <div class="article-type-badge">{{ article.tags[0] }}</div>
+            <h3><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h3>
+            {% if article.description %}
+            <p class="excerpt">{{ article.description }}</p>
+            {% endif %}
+            {% if article.secondary_tags %}
+            <div class="article-tags" style="margin-top: 1rem;">
+                {% for tag in article.secondary_tags %}
+                <span class="secondary-tag">{{ tag }}</span>
+                {% endfor %}
             </div>
             {% endif %}
+            <a href="{{ article.url | relative_url }}" class="read-more">Read more →</a>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
