@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 15px;
     line-height: 1.6;
     color: var(--color-text);
@@ -500,12 +500,13 @@ main {
 .case-study-content table {
     width: 100%;
     max-width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 1.5rem 0;
     display: block;
     overflow-x: auto;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .article-content th,
@@ -838,7 +839,7 @@ footer {
 .article-content,
 .page-content,
 .case-study-content {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
@@ -1750,10 +1751,11 @@ html {
 .api-param-table,
 .api-status-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 1.5rem 0;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
 }
 

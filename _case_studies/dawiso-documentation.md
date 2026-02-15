@@ -18,7 +18,7 @@ link: "https://help.dawiso.com"
 
 When I joined Dawiso as Documentation Specialist in April 2024, my initial task was to manage and expand the existing documentation. After evaluating both the product and documentation structure, I identified a need for comprehensive restructuring rather than incremental updates.
 
-The existing knowledge was distributed across outdated articles, Slack conversations, and JIRA tickets—valuable information, but difficult to access for new users or those seeking quick answers. The documentation lacked a cohesive structure that could effectively serve its diverse audience.
+The existing knowledge was distributed across outdated articles, Slack conversations, and JIRA tickets. This was valuable information, but difficult to access for new users or those seeking quick answers. The documentation lacked a cohesive structure that could effectively serve its diverse audience.
 
 The platform itself presented additional complexity. As a data governance tool with extensive JSON-based configuration packages, it required clear explanation of both abstract concepts and technical implementation. Data governance spans multiple use cases and workflows, making it essential to establish a clear foundation before documenting specific features.
 
@@ -32,7 +32,7 @@ Parallel to this, I conducted interviews with subject matter experts to understa
 
 JSON configuration packages represented the most significant technical challenge. With numerous configuration options and specific compatibility requirements, these packages required thorough understanding to document effectively.
 
-The standard approach—modifying existing packages—proved effective for experienced users but created obstacles for those new to the system. Identifying errors in unfamiliar code structures consumed significant time without building foundational knowledge.
+The standard approach of modifying existing packages proved effective for experienced users but created obstacles for those new to the system. Identifying errors in unfamiliar code structures consumed significant time without building foundational knowledge.
 
 I shifted to a systematic approach: understanding each property's function, testing configurations methodically, and validating behavior. This process, while initially slower, enabled me to create tutorials that guided users from first principles rather than requiring them to work backward from complex examples.
 
@@ -61,7 +61,7 @@ This workflow established accountability, eliminated documentation gaps, and pro
 
 Documentation development involved close collaboration with product management, engineering, and customer support teams. Product and engineering provided technical insights and feature walkthroughs. Customer support identified recurring user issues, informing documentation priorities.
 
-To accommodate team bandwidth constraints, I adapted communication approaches to individual preferences—whether Slack messages, brief calls, or asynchronous JIRA reviews. The most effective workflow involved independent feature exploration and draft creation, followed by focused review requests. This approach minimized the time required from stakeholders while ensuring technical accuracy.
+To accommodate team bandwidth constraints, I adapted communication approaches to individual preferences, whether Slack messages, brief calls, or asynchronous JIRA reviews. The most effective workflow involved independent feature exploration and draft creation, followed by focused review requests. This approach minimized the time required from stakeholders while ensuring technical accuracy.
 
 ## Impact
 
@@ -71,7 +71,7 @@ The documentation enabled developers to implement JSON configurations and automa
 
 ## Dawiso Academy: Video Learning Content
 
-In parallel with written documentation, leadership initiated Dawiso Academy, a video-based learning platform. I developed the syllabus and scripts, and when no other team members were available to present, took on the presentation role—a new challenge requiring video production and presentation skills.
+In parallel with written documentation, leadership initiated Dawiso Academy, a video-based learning platform. I developed the syllabus and scripts, and when no other team members were available to present, took on the presentation role. This was a new challenge that required video production and presentation skills.
 
 The project produced 10+ educational videos covering key platform features and established a sustainable production workflow for future content.
 

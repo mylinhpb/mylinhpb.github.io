@@ -31,7 +31,7 @@ The content strategy prioritized introductory material: platform overview, core 
 
 Initial production attempts used screen recordings with voiceover, without on-camera presence. Review revealed that this approach lacked the guidance element necessary for complex concept explanation, which was why we decided to switch to a guided tutorial.
 
-The first filming session required developing presentation skills in real-time: pacing, emphasis, camera presence, and clear feature explanation. The session extended to six hours—significantly longer than anticipated—but established foundational techniques that accelerated subsequent video production.
+The first filming session required developing presentation skills in real-time: pacing, emphasis, camera presence, and clear feature explanation. The session extended to six hours, which was significantly longer than anticipated. However, it helped ups establish foundational techniques that accelerated subsequent video production.
 
 ## Sustainable Production Workflow
 
@@ -58,7 +58,7 @@ This process produced 10+ educational videos covering core platform features: pl
 
 Dawiso Academy provided an alternative learning path that complemented written documentation. Users could choose between guided video tutorials and text-based reference materials based on their learning preferences and use cases.
 
-The project demonstrated that expanding beyond established skill sets—whether technical configuration or video presentation—can significantly increase the scope and accessibility of documentation deliverables.
+The project demonstrated that expanding beyond established skill sets, which can significantly increase the scope and accessibility of documentation deliverables.
 
 ## Technologies & Tools
 

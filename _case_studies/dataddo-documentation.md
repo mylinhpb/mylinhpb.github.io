@@ -18,7 +18,7 @@ link: "https://docs.dataddo.com"
 
 When I joined Dataddo as Knowledge Base Manager in April 2022, the documentation required significant restructuring. Content gaps and outdated information had accumulated as the platform evolved, and the existing information architecture made navigation difficult for both users and internal teams.
 
-The fragmentation manifested in specific ways. For example, sync frequency information appeared across multiple locations—FAQ, source creation guides, and troubleshooting articles—with inconsistent or contradictory details. Similar patterns affected other topics, where information was distributed across disconnected articles without clear linking or hierarchy.
+The fragmentation manifested in specific ways. For example, sync frequency information appeared across multiple locations (FAQ, source creation guides, and troubleshooting articles) with inconsistent or contradictory details. Similar patterns affected other topics, where information was distributed across disconnected articles without clear linking or hierarchy.
 
 The navigation structure reflected organic growth rather than intentional design. The FAQ had become a repository for various topics, many of which warranted dedicated articles. Content organization lacked clear categorization principles, making information retrieval challenging even for internal Solutions teams familiar with the platform.
 
@@ -50,7 +50,7 @@ The documentation role expanded beyond content creation to strategic partnership
 
 One significant collaboration involved aligning with Marketing on content strategy. Marketing sought benefit-focused, engaging language similar to marketing materials. Technical documentation, however, serves users seeking rapid problem resolution rather than product evaluation.
 
-Resolution came through content type clarification. Marketing's objectives aligned with technical blog posts and educational tutorials—content that combines technical information with persuasive elements. Documentation maintains its distinct purpose: enabling efficient problem-solving. Clarifying these distinct content purposes and audiences resolved the strategic misalignment.
+Resolution came through content type clarification. Marketing's objectives aligned with technical blog posts and educational tutorials, in other words, content that combines technical information with persuasive elements. Documentation maintains its distinct purpose: enabling efficient problem-solving. Clarifying these distinct content purposes and audiences resolved the strategic misalignment.
 
 ## Impact
 
