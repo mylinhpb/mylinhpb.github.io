@@ -19,6 +19,8 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: text
     css_class: 'highlight'
+  parse_block_html: true
+  parse_span_html: true
 
 # Collections
 collections:

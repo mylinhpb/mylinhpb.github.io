@@ -61,8 +61,8 @@ Here is a blank `templates` property for an object type:
 
 | **Property** | **Purpose** |
 |---|---|
-| `main` | Configures the layout of the main object page using attributes and components. Every object type page can be split into two sections: <ul><li>`centerArea`: The center area is usually used for big components like long descriptions, tables, or diagrams.</li><li>`rightArea`: (Optional) The right panel is often used for labels or label selectors. Defining this area is not a requirement for all object types.</li><li>`settings`: (Optional) This property configures settings specific to the **object type template**.</li></ul> |
-|`objectDetail`| Defines the object detail panel, which shows up when we select an object in e.g., advanced search, diagrams, or other limited spaces.<br>Please note that the object detail template supports only the following component types:<br><ul><li>[`api-table`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/853/-)</li><li>[`attributes`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/856/-)</li><li>[`codetable-label`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/859/-)</li><li>[`codetable-label-user`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/867/-)</li><li>[`component`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/874/-)</li><li>[`panel`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/857/-)</li><li>[`relations`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/860/-)</li><li>[`section-title`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/866/-)</li><li>[`tabs`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/863/-)</li><ul> |
+| `main` | Configures the layout of the main object page using attributes and components. Every object type page can be split into two sections: <br>`centerArea`: The center area is usually used for big components like long descriptions, tables, or diagrams.<br>`rightArea`: (Optional) The right panel is often used for labels or label selectors. Defining this area is not a requirement for all object types.<br>`settings`: (Optional) This property configures settings specific to the **object type template**. |
+|`objectDetail`| Defines the object detail panel, which shows up when we select an object in e.g., advanced search, diagrams, or other limited spaces.<br>Please note that the object detail template supports only the following component types:<br><br>[`api-table`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/853/-)<br>[`attributes`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/856/-)<br>[`codetable-label`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/859/-)<br>[`codetable-label-user`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/867/-)<br>[`component`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/874/-)<br>[`panel`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/857/-)<br>[`relations`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/860/-)<br>[`section-title`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/866/-)<br>[`tabs`](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/863/-) |
 |`search`|Configures which attributes of this object type can be used as **search facets**. This will be covered in more detail in advanced tutorials.|
 |`miscellaneous`|Adds a button with a link to the main page and object detail page. For more information, see the [article on the Object Type Miscellaneous property](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/974/-).|
 
@@ -93,9 +93,6 @@ For example, adding an attribute with `is_html` feature to the layout ensures th
 ```
 
 ### **Example: Recipe Object Type's Attributes**
-<details open="open">
-<summary>Click here to hide the example.</summary>
-
 ```json
 "objectTypes": [
     {
@@ -119,7 +116,6 @@ For example, adding an attribute with `is_html` feature to the layout ensures th
     },
 ],
 ```
-</details>
 
 ## 2. Referencing Components
 Reference previously created components by their keys using the `"type": "component"` property and specifying the corresponding component key (from [4. Define Smallest Units: Components](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/1028/-)) in the `value` field.
@@ -132,9 +128,6 @@ Reference previously created components by their keys using the `"type": "compon
 ```
 
 ### Example: Cuisine Object Type's Components
-<details open="open">
-<summary>Click here to hide the example.</summary>
-
 ```json
 "components": [
     {
@@ -163,7 +156,6 @@ Reference previously created components by their keys using the `"type": "compon
 ],
 
 ```
-</details>
 
 ## 3. Creating Components
 Components can be defined directly within the layout, mainly for those that are not reused. While we generally recommend **defining all components in their own asset** for better organization and reusability, direct component creation within templates would look like this:
@@ -184,8 +176,7 @@ Components can be defined directly within the layout, mainly for those that are 
 ```
 
 ### Example: Recipe Object Type's Components
-<details open="open">
-<summary>Click here to hide the example.</summary>
+
 In our example app, we will define the components for the Recipe object type page template in the following way:
 
 ```json
@@ -222,7 +213,6 @@ In our example app, we will define the components for the Recipe object type pag
     ...
 ]
 ```
-</details>
 
 >[!TIP]
 > You can nest components within visual components for better organization and clarity. In our example, panel components wrap codetable labels into structured sections, improving readability. For more details, see the **Visual Component: Panel** section in the [4. Define Smallest Units: Components](https://help.dawiso.com/data-governance/space/3/-/app/9/-/object/1028/-) article.
@@ -265,8 +255,6 @@ In the screenshot below, you can see the object detail of a **Recipe** object ty
 
 ![Object Detail]({{ '/assets/images/configure-page-template_2Object Detail.png' | relative_url }})
 
-<details open="open">
-<summary>Click here to hide the example.</summary>
 For the Recipe's object detail, we configured two **tabs**:
 
 1. **Object Overview Tab**: Contains the list of ingredients and the recipe description.
@@ -330,7 +318,6 @@ As you can see, we simply reused existing components for convenience.
 ...
 ],
 ```
-</details>
 
 ## Optional: Template Settings
 Each object type and object detail template **includes default UI components**, such as the comment section, changelog, and like/dislike buttons. These components are **visible by default but can be configured** to suit your needs.
@@ -375,19 +362,16 @@ Let&rsquo;s take a look at a blank settings template:
 | **Property** | **Purpose** | 
 | ---| ---| 
 | `type`| The `templates-setting` component type configures the settings of a page layout. When defined as a separate component, it will also need its own unique `key` for referencing.| 
-| `attributeLayout`| Determines how attributes and their values are displayed on the page. Supported values are:<ul><li>`multiline`: Attribute type and value are on a separate line.</li><li>`single-row`: Default value. Attribute type and value are on the same line.</li></ul>| 
-| `header`| Configures the header area of the object page:<ul><li>`descriptionAttributeTypeKey`: Includes a description stored in an attribute.</li><li>`fullnessAttributeTypeKey`: Adds a fullness score, which provides a visual metric for completeness.</li><li>`layout`: Configures the header&rsquo;s appearance. Supported values are:</li><ul><li>`default`: Header contains like/dislike, favorite, and watch buttons, workflow state, fullness score, etc.</li><li>`documentation`: Removes the header for a wiki-like layout with only the object name, creation timestamp, last updated timestamp, author, and workflow state visible.</li></ul></ul> |
-|`layout`| Determines the overall appearance of the object type page:<ul><li>`default`: Components are in panels with borders.</li><li>`single-row`: Removes borders around panels on the page.</li></ul>|
-|`hide`| Specifies which UI components should be hidden. If a component is not explicitly listed, it will be visible by default (`false`). Components that can be hidden are:<ul><li>`anchors`: Removes heading anchors.</li><li>`attachments`: Disables adding attachments.</li><li>`changes`: Hides the change history section.</li><li>`commentSection`: Disables the comment section on the page.</li><li>`concepts`: Disables creating concepts.</li><li>`created`: Hides the information about who created the object.</li><li>`favouriteButton`: Disables the option to mark the object as a favorite.</li><li>`hideEmptyAttributesButton`: [Obsolete] Hides empty attributes.</li><li>`jiraSearch`: When the Jira integration is enabled, removes the button that looks the object up in Jira.</li><li>`likeButton`: Disables the like/dislike button for the object.</li><li>`moveObject`: Hides the option to move the object to a different location from the object settings.</li><li>`removeObject`: Disables the option to delete the object.</li><li>`renameObject`: Disables the ability to rename the object.</li><li>`shareObject`: Disables the object share option.</li><li>`updated`: Hides the information about who last updated the object.</li><li>`watchingButton`: Disables the button to follow/watch changes to the object.</li><li>`workflowStatus`: Removes the workflow status.</li></ul>|
+| `attributeLayout`| Determines how attributes and their values are displayed on the page. Supported values are:<br>`multiline`: Attribute type and value are on a separate line.<br>`single-row`: Default value. Attribute type and value are on the same line.| 
+| `header`| Configures the header area of the object page:<br>`descriptionAttributeTypeKey`: Includes a description stored in an attribute.<br>`fullnessAttributeTypeKey`: Adds a fullness score, which provides a visual metric for completeness.<br>`layout`: Configures the header&rsquo;s appearance. Supported values are:</li><br>`default`: Header contains like/dislike, favorite, and watch buttons, workflow state, fullness score, etc.<br>`documentation`: Removes the header for a wiki-like layout with only the object name, creation timestamp, last updated timestamp, author, and workflow state visible.</ul> |
+|`layout`| Determines the overall appearance of the object type page:<br>`default`: Components are in panels with borders.<br>`single-row`: Removes borders around panels on the page.|
+|`hide`| Specifies which UI components should be hidden. If a component is not explicitly listed, it will be visible by default (`false`). Components that can be hidden are:<br>`anchors`: Removes heading anchors.<br>`attachments`: Disables adding attachments.<br>`changes`: Hides the change history section.<br>`commentSection`: Disables the comment section on the page.<br>`concepts`: Disables creating concepts.<br>`created`: Hides the information about who created the object.<br>`favouriteButton`: Disables the option to mark the object as a favorite.<br>`hideEmptyAttributesButton`: [Obsolete] Hides empty attributes.<br>`jiraSearch`: When the Jira integration is enabled, removes the button that looks the object up in Jira.<br>`likeButton`: Disables the like/dislike button for the object.<br>`moveObject`: Hides the option to move the object to a different location from the object settings.<br>`removeObject`: Disables the option to delete the object.<br>`renameObject`: Disables the ability to rename the object.<br>`shareObject`: Disables the object share option.<br>`updated`: Hides the information about who last updated the object.<br>`watchingButton`: Disables the button to follow/watch changes to the object.<br>`workflowStatus`: Removes the workflow status.|
 
 ### **Example: Template Settings on Cuisine Object Type**
 In the screenshot below, you can see what the template settings can influence:
 
 ![Parent Object (Template Settings)]({{ '/assets/images/configure-page-template_3Parent Object (Template Settings).png' | relative_url }})
 
-
-<details open="open">
-<summary>Click here to hide the example.</summary>
 In our example package, the template settings were **used for the parent object types** (Cuisine and Ingredients Category) and were defined as a **component**:
 
 ```json
@@ -441,4 +425,3 @@ In our example package, the template settings were **used for the parent object 
 ...
 ],
 ```
-</details>

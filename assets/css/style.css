@@ -528,6 +528,16 @@ main {
     font-size: 0.9rem;
 }
 
+/* Keep header text visible when using strong/bold - inherits white instead of primary */
+.article-content th strong,
+.article-content th b,
+.page-content th strong,
+.page-content th b,
+.case-study-content th strong,
+.case-study-content th b {
+    color: inherit;
+}
+
 .article-content tr:nth-child(even),
 .page-content tr:nth-child(even),
 .case-study-content tr:nth-child(even) {
@@ -539,6 +549,33 @@ main {
 .case-study-content td {
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+/* Lists and other HTML inside table cells */
+.article-content td ul,
+.article-content td ol,
+.page-content td ul,
+.page-content td ol,
+.case-study-content td ul,
+.case-study-content td ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    line-height: 1.6;
+}
+
+.article-content td li,
+.page-content td li,
+.case-study-content td li {
+    margin-bottom: 0.25rem;
+}
+
+.article-content td code,
+.page-content td code,
+.case-study-content td code {
+    background-color: var(--color-light);
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85em;
 }
 
 .article-toc {

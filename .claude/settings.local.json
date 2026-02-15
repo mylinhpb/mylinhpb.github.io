@@ -13,7 +13,10 @@
       "Bash(grep:*)",
       "Bash(git commit:*)",
       "Bash(pip install:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(bundle exec jekyll clean:*)",
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(git push:*)"
     ]
   }
 }
