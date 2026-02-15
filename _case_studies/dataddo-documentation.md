@@ -61,11 +61,12 @@ The consistent documentation structure enabled developers to independently confi
 Monitoring searches without results created a feedback loop for identifying documentation gaps. This data-driven approach enabled continuous coverage improvement and prevented recurring support issues.
 
 ## Key Insights
-
-* **Information architecture determines usability.** Content quality becomes irrelevant when users cannot locate information. Structural redesign represented the highest-impact intervention.
-* **Templates enable systematic scaling.** Standardized documentation patterns made consistent, efficient documentation of hundreds of connectors achievable.
-* **Content types serve distinct purposes.** Understanding the fundamental differences between documentation (problem-solving) and marketing content (persuasion) preserves the effectiveness of both.
-* **Data-driven iteration improves coverage.** Monitoring search failures and ticket resolution patterns provides actionable insights for continuous documentation improvement.
+| Key Insight | Description |
+|---|---|
+| **Information architecture determines usability.** | Content quality becomes irrelevant when users cannot locate information. Structural redesign represented the highest-impact intervention.|
+| **Templates enable systematic scaling.** | Standardized documentation patterns made consistent, efficient documentation of hundreds of connectors achievable.|
+| **Content types serve distinct purposes.** | Understanding the fundamental differences between documentation (problem-solving) and marketing content (persuasion) preserves the effectiveness of both.|
+| **Data-driven iteration improves coverage.** | Monitoring search failures and ticket resolution patterns provides actionable insights for continuous documentation improvement.|
 
 ## Technologies & Tools
 
