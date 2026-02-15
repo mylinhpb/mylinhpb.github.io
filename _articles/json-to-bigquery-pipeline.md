@@ -6,7 +6,7 @@ tags: [How-to blog]
 secondary_tags: [BigQuery, JSON, Data Pipeline, ETL, Google Cloud]
 ---
 
-> The following is the updated version of a blog article originally published on [Dataddo's blog](https://blog.dataddo.com/json-to-google-bigquery-data-pipeline-in-less-than-2-minutes).
+> The following is the updated version of a blog article originally published on [Dataddo's blog](https://blog.dataddo.com/json-to-google-bigquery-data-pipeline-in-less-than-2-minutes). Adjusted for this portfolio.
  
 # JSON to Google Bigquery: Data Pipeline in Less than 2 Minutes
 Now that we know <a href="https://blog.dataddo.com/get-started-with-google-bigquery" target="_blank">how to set up Google BigQuery</a>, it’s time to load our data. For this article, we chose to insert data from JSON, a very popular data interchange format that is also extremely lightweight, text-based, and language-independent. If you work with databases, chances are you have used JSON many times before.

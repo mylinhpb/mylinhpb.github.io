@@ -18,7 +18,13 @@
     <nav class="navbar">
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+            <div class="nav-links" id="nav-links">
                 <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
                 <a href="{{ '/case-studies' | relative_url }}"
                     class="{% if page.url contains '/case-studies' %}active{% endif %}">Case Studies</a>
@@ -43,8 +49,8 @@
     </footer>
 
     <script>
-        // Open all external links in new tab (site-wide)
         document.addEventListener('DOMContentLoaded', function () {
+            // Open all external links in new tab (site-wide)
             const links = document.querySelectorAll('a');
             links.forEach(function (link) {
                 if (link.hostname && link.hostname !== window.location.hostname && link.hostname !== '') {
@@ -52,6 +58,43 @@
                     link.setAttribute('rel', 'noopener noreferrer');
                 }
             });
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            const navbar = document.querySelector('.navbar');
+
+            const navOverlay = document.getElementById('nav-overlay');
+
+            function closeMenu() {
+                navbar.classList.remove('nav-open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                if (navOverlay) navOverlay.setAttribute('aria-hidden', 'true');
+            }
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function () {
+                    const isOpen = navbar.classList.toggle('nav-open');
+                    hamburger.setAttribute('aria-expanded', isOpen);
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                    if (navOverlay) navOverlay.setAttribute('aria-hidden', !isOpen);
+                });
+
+                if (navOverlay) {
+                    navOverlay.addEventListener('click', closeMenu);
+                }
+
+                // Close menu when clicking a nav link (for mobile)
+                navLinks.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                // Close menu on resize to desktop
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 768) closeMenu();
+                });
+            }
         });
     </script>
 </body>

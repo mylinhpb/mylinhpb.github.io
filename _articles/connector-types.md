@@ -6,7 +6,7 @@ tags: [Resource]
 secondary_tags: [Connectors, Data Integration, API, Documentation]
 ---
 
-> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/connectors). Adjusted for MD in Github.
+> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/connectors). Adjusted for this portfolio.
 
 # Type of Connectors
 In this article, we’ll explore types of connectors available in Dataddo. Connectors allow Dataddo to extract data from your services. When you **configure a connector**, it allows you to define the data to be extracted, consequently creating a ***data source***. The use of connectors is implicit as you start using them immediately without even actively noticing.

@@ -6,7 +6,7 @@ tags: [How-to guide]
 secondary_tags: [Data Transformation, Pipeline, MongoDB, JSON, ETL]
 ---
 
-> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/transformation-pipeline-guide). Adjusted for MD in Github.
+> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/transformation-pipeline-guide). Adjusted for this portfolio.
  
 # How to Write a Transformation Pipeline Script
 

@@ -6,7 +6,7 @@ tags: [Tutorial]
 secondary_tags: [Data Source, Configuration, Quickstart]
 ---
 
-> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/creating-a-data-source). Adjusted for MD in Github.
+> The following article was originally published in [Dataddo's documentation](https://docs.dataddo.com/docs/creating-a-data-source). Adjusted for this portfolio.
 
 # How to Create a Data Source
 In the first step of our quickstart tutorial, we will guide you through creating a ***data source***, allowing you to choose the specific data you want to extract from your service.

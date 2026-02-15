@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="api-demo-page">
+    {{ content }}
+</div>
+
+<style>
+    /* Remove constraints for full-width API demo */
+    .api-demo-page {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Ensure main content area doesn't constrain the demo */
+    main {
+        padding: 0;
+    }
+
+    /* Add some top padding after navbar */
+    .api-demo-page {
+        padding-top: 2rem;
+    }
+</style>

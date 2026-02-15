@@ -17,102 +17,54 @@ link_text: "View Dawiso Academy"
 
 ## The Challenge
 
-While comprehensive written documentation was essential for the Dawiso platform, user feedback and onboarding metrics revealed a gap: **visual learners needed video-based content** to understand complex workflows and JSON configuration concepts.
+Dawiso Academy is a video-based learning platform designed to complement written documentation. My responsibilities included developing the curriculum structure and writing scripts.
 
-The challenge was to:
-- Create video tutorials that complement written documentation
-- Cover key platform features and common use cases
-- Make content accessible for users with varying technical backgrounds
-- Establish a sustainable video production workflow
-- Build a dedicated learning platform separate from the main documentation
+When no other team members were available for on-camera presentation, the role expanded to include video presentation, a format I had not previously worked in. This required developing new skills: video production, on-camera presentation techniques, and adapting written content for video delivery.
 
-## The Approach
+## Content Strategy
 
-### 1. Content Planning & Strategy
+User feedback indicated that platform onboarding presented the primary challenge. Data governance encompasses broad concepts, and users needed foundational understanding before engaging with advanced features.
 
-Identified high-impact topics based on:
-- **User onboarding data** showing common learning bottlenecks
-- **Support tickets** revealing areas where text documentation wasn't sufficient
-- **Product team input** on key features needing better explanation
-- **User feedback** requesting visual walkthroughs
+The content strategy prioritized introductory material: platform overview, core concepts, and fundamental workflows. Advanced topics remained in text format where they could be easily updated and searched. Video content focused on building user mental models and demonstrating workflow patterns.
 
-### 2. Video Content Creation
+## Production Development
 
-Co-created 10+ educational videos covering:
-- **Platform overview** and core concepts
-- **JSON package configuration** with step-by-step demonstrations
-- **Automation rules** setup and best practices
-- **Common workflows** for data governance tasks
-- **Troubleshooting guides** for frequent issues
+Initial production attempts used screen recordings with voiceover, without on-camera presence. Review revealed that this approach lacked the guidance element necessary for complex concept explanation, which was why we decided to switch to a guided tutorial.
 
-### 3. Learning Platform Development
+The first filming session required developing presentation skills in real-time: pacing, emphasis, camera presence, and clear feature explanation. The session extended to six hours—significantly longer than anticipated—but established foundational techniques that accelerated subsequent video production.
 
-Built Dawiso Academy as a dedicated learning resource:
-- **Structured learning paths** organized by user role and skill level
-- **Video player integration** with transcripts and timestamps
-- **Supplementary materials** including code snippets and templates
-- **Progress tracking** for self-paced learning
+## Sustainable Production Workflow
 
-### 4. Production Workflow
+After initial production, I established a repeatable workflow:
 
-Established sustainable video production process:
-- **Script development** based on documentation content
-- **Screen recording** using Camtasia for consistent quality
-- **Editing and post-production** with captions and annotations
-- **Review process** with subject matter experts
-- **Publishing workflow** integrated with platform updates
+1. **Script development** leveraging existing written documentation and SMEs
+2. **Screen recording** using Camtasia
+3. **Post-production** including captions and annotations was Marketing's responsibility
+4. **Technical review** with SMEs
 
-## Key Deliverables
+This process produced 10+ educational videos covering core platform features: platform overview, JSON package configuration, automation rules, and data governance workflows.
 
-- **10+ educational videos** covering core platform features
-- **Dedicated learning platform** (academy.dawiso.com)
-- **Video production workflow** for ongoing content creation
-- **Supplementary materials** (code examples, templates, checklists)
-- **Learning paths** for different user personas
-- **Video transcripts** for accessibility and SEO
+## Key Insights
 
-## Impact & Results
+|Key Insight| Description|
+|---|---|
+|**Video and text serve complementary roles.**|Written documentation remains essential for reference and search. Video excels at workflow demonstration and concept introduction but requires more resources to maintain and update.|
+|**Foundation-first content strategy maximizes impact.**|Concentrating video resources on introductory content addresses the highest-impact user need while keeping advanced content in more maintainable text format.|
+|**Skill development expands capabilities.**|Video production and presentation skills, while initially outside my expertise, extended the range of content formats I could produce and improved documentation accessibility.|
+|**Production quality affects content credibility.**|Consistent audio quality, clear screen recordings, and professional editing contribute to user trust and content effectiveness.|
+|**Update planning matters.**|Video maintenance requires more resources than text updates. Content selection must consider feature stability to ensure long-term viability.|
 
-### Improved Onboarding Experience
-Video content significantly accelerated user understanding of complex features, particularly JSON configuration and automation rules.
+## Impact
 
-### Reduced Time-to-Value
-Users can now get started with the platform faster by watching targeted video tutorials instead of reading extensive documentation.
+Dawiso Academy provided an alternative learning path that complemented written documentation. Users could choose between guided video tutorials and text-based reference materials based on their learning preferences and use cases.
 
-### Multi-Modal Learning
-Combining video and written documentation serves different learning preferences, improving overall user satisfaction and knowledge retention.
-
-### Sustainable Content System
-Established production workflow enables ongoing video content creation as new features are released.
+The project demonstrated that expanding beyond established skill sets—whether technical configuration or video presentation—can significantly increase the scope and accessibility of documentation deliverables.
 
 ## Technologies & Tools
 
 - **Video Production:** Camtasia for screen recording and editing
 - **Platform Hosting:** Custom academy platform
-- **Content Planning:** Collaboration with Product and Engineering teams
-- **Scripts & Supplements:** Written documentation as foundation
-
-## Lessons Learned
-
-**Video complements, doesn't replace text:** Written documentation remains essential for reference and searchability, while videos excel at demonstrating workflows.
-
-**Focus on common use cases:** Creating videos for the most frequent user scenarios provides the highest impact with limited production resources.
-
-**Keep videos focused:** Shorter, topic-specific videos (5-10 minutes) perform better than long comprehensive tutorials.
-
-**Accessibility matters:** Adding transcripts and captions makes content accessible and improves SEO for the academy site.
-
-**Production quality is important:** Consistent audio, clear screen recordings, and professional editing build trust and credibility.
-
-**Update strategy is crucial:** Videos require maintenance as the product evolves—planning for updates is as important as initial production.
-
-## Future Development
-
-The Dawiso Academy continues to grow with:
-- Additional tutorials for new features
-- Advanced use case demonstrations
-- Community-contributed content
-- Interactive exercises and quizzes
+- **Content Planning:** Collaboration with the Marketing team
 
 
 [Visit Dawiso Academy →](https://www.dawiso.com/academy){:target="_blank" rel="noopener noreferrer" class="btn btn-primary"}

@@ -99,6 +99,136 @@ a:hover {
     border-bottom-color: var(--color-secondary);
 }
 
+/* Hamburger button - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Mobile nav styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(280px, 85vw);
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 5rem 1.5rem 2rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        z-index: 105;
+    }
+
+    .navbar.nav-open .nav-links {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: 1rem;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    /* Hamburger to X animation when open */
+    .navbar.nav-open .hamburger-line:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+
+    .navbar.nav-open .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar.nav-open .hamburger-line:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+
+}
+
+/* Nav overlay - backdrop when menu is open on mobile */
+.nav-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 104;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .navbar.nav-open .nav-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Smaller base font for mobile */
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .tagline {
+        font-size: 1.1rem;
+    }
+
+    .nav-brand {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
 main {
     padding: 2rem 0 1rem;
 }
@@ -253,17 +383,21 @@ main {
     line-height: 1.7;
 }
 
+/* Unified list styles */
 .article-content ul,
 .page-content ul,
+.case-study-content ul,
 .article-content ol,
-.page-content ol {
+.page-content ol,
+.case-study-content ol {
     margin: 1.2rem 0;
     padding-left: 2.5rem;
     line-height: 1.7;
 }
 
 .article-content li,
-.page-content li {
+.page-content li,
+.case-study-content li {
     margin-bottom: 0.3rem;
     padding-left: 0.5rem;
 }
@@ -271,13 +405,17 @@ main {
 .article-content li > ul,
 .article-content li > ol,
 .page-content li > ul,
-.page-content li > ol {
+.page-content li > ol,
+.case-study-content li > ul,
+.case-study-content li > ol {
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
 }
 
+/* Unified image styles */
 .article-content img,
-.page-content img {
+.page-content img,
+.case-study-content img {
     max-width: 100%;
     height: auto;
     display: block;
@@ -285,8 +423,10 @@ main {
     border-radius: 6px;
 }
 
+/* Unified inline code styles */
 .article-content code,
-.page-content code {
+.page-content code,
+.case-study-content code {
     background-color: var(--color-light);
     color: var(--color-primary);
     padding: 0.2rem 0.4rem;
@@ -294,21 +434,24 @@ main {
     font-size: 0.88em;
 }
 
+/* Unified code block styles */
 .article-content pre,
-.page-content pre {
+.page-content pre,
+.case-study-content pre {
     background-color: #2d2d2d;
     color: #f8f8f2;
     padding: 1rem;
     border-radius: 6px;
     overflow-x: auto;
     overflow-y: hidden;
-    margin: 0;
+    margin: 1rem 0;
     max-width: 100%;
     width: 100%;
 }
 
 .article-content pre code,
-.page-content pre code {
+.page-content pre code,
+.case-study-content pre code {
     background: none;
     color: inherit;
     padding: 0;
@@ -351,29 +494,51 @@ main {
     color: white;
 }
 
+/* Unified table styles for all content types */
 .article-content table,
-.page-content table {
+.page-content table,
+.case-study-content table {
     width: 100%;
     max-width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
     display: block;
     overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
 }
 
 .article-content th,
 .page-content th,
+.case-study-content th,
 .article-content td,
-.page-content td {
+.page-content td,
+.case-study-content td {
     border: 1px solid var(--color-border);
-    padding: 0.6rem;
+    padding: 0.75rem 1rem;
+    text-align: left;
 }
 
 .article-content th,
-.page-content th {
-    background-color: var(--color-light);
-    color: var(--color-primary);
+.page-content th,
+.case-study-content th {
+    background-color: var(--color-primary);
+    color: white;
     font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.article-content tr:nth-child(even),
+.page-content tr:nth-child(even),
+.case-study-content tr:nth-child(even) {
+    background-color: var(--color-bg);
+}
+
+.article-content td,
+.page-content td,
+.case-study-content td {
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .article-toc {
@@ -608,9 +773,10 @@ footer {
     color: #b33939;
 }
 
+/* Unified blockquote styles */
 .article-content blockquote,
 .page-content blockquote,
-.page-content blockquote {
+.case-study-content blockquote {
     border-left: 3px solid var(--color-secondary);
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
@@ -620,18 +786,21 @@ footer {
 
 /* Unified paragraph spacing */
 .article-content p,
-.page-content p {
+.page-content p,
+.case-study-content p {
     margin-bottom: 1.2rem;
 }
 
 .article-content p:last-child,
-.page-content p:last-child {
+.page-content p:last-child,
+.case-study-content p:last-child {
     margin-bottom: 0;
 }
 
 /* Unified content styles */
 .article-content,
-.page-content {
+.page-content,
+.case-study-content {
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -1222,6 +1391,7 @@ footer {
     padding: 3rem 2rem;
 }
 
+/* Case study specific heading styles */
 .case-study-content h2 {
     font-size: 1.8rem;
     margin-top: 3rem;
@@ -1242,22 +1412,9 @@ footer {
     margin-bottom: 0.8rem;
 }
 
-.case-study-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-.case-study-content ul,
-.case-study-content ol {
-    margin: 1.5rem 0;
-    padding-left: 2.5rem;
-    line-height: 1.7;
-}
-
-.case-study-content li {
-    margin-bottom: 0.8rem;
-}
-
+/* Unified strong tag styling */
+.article-content strong,
+.page-content strong,
 .case-study-content strong {
     color: var(--color-primary);
     font-weight: 600;
@@ -1351,6 +1508,419 @@ footer {
 /* Scroll offset for anchor links */
 html {
     scroll-padding-top: 100px;
+}
+
+/* ===================================
+   API Documentation Demo Styles
+   =================================== */
+
+/* These styles are specific to API documentation demos and maintain
+   consistent theming across all API demo writing samples */
+
+.api-demo-intro {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+}
+
+.api-demo-intro h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.api-demo-intro p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.api-demo-wrapper {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.api-demo-container {
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+}
+
+.api-demo-nav {
+    width: 260px;
+    background-color: var(--color-bg);
+    border-right: 1px solid var(--color-border);
+    padding: 2rem 0;
+    flex-shrink: 0;
+}
+
+.api-demo-nav h3 {
+    color: var(--color-primary);
+    padding: 0 1.5rem;
+    margin: 0 0 1rem 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.api-nav-section {
+    margin-bottom: 2rem;
+}
+
+.api-nav-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    color: var(--color-text-light);
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-left: 3px solid transparent;
+}
+
+.api-nav-item:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border-left-color: var(--color-accent);
+}
+
+.api-nav-item.active {
+    background-color: white;
+    color: var(--color-primary);
+    border-left-color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.api-nav-item .method-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.method-get {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.method-post {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.api-demo-content {
+    flex: 1;
+    display: flex;
+    background-color: white;
+    min-width: 0;
+}
+
+.api-demo-left {
+    flex: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+    max-height: 600px;
+    min-width: 0;
+}
+
+.api-demo-right {
+    width: 45%;
+    background-color: #2a2826;
+    padding: 2.5rem;
+    overflow-y: auto;
+    max-height: 600px;
+    color: #e8d5d1;
+    flex-shrink: 0;
+}
+
+.api-endpoint-section {
+    display: none;
+    min-height: 400px;
+}
+
+.api-endpoint-section.active {
+    display: block;
+}
+
+.api-demo-left h2 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.api-demo-left h3 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.api-demo-left h4 {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.api-demo-left p {
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.api-method-url {
+    background-color: var(--color-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--color-secondary);
+    margin: 1.5rem 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.api-method-url .method {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    margin-right: 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.api-method-url .method.get {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.api-method-url .method.post {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.api-param-table,
+.api-status-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.api-param-table th,
+.api-status-table th {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.api-param-table td,
+.api-status-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.api-param-table tr:last-child td,
+.api-status-table tr:last-child td {
+    border-bottom: none;
+}
+
+.api-param-table tr:nth-child(even),
+.api-status-table tr:nth-child(even) {
+    background-color: var(--color-bg);
+}
+
+.api-param-table code {
+    background-color: var(--color-light);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.api-required {
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.api-status-code {
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.status-200 { color: var(--color-secondary); }
+.status-400 { color: var(--color-primary); }
+.status-401 { color: var(--color-primary); }
+.status-404 { color: var(--color-primary); }
+.status-429 { color: #cf8e80; }
+.status-500 { color: #916953; }
+
+.api-code-block {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.api-code-header {
+    background-color: #3a2d26;
+    padding: 0.75rem 1rem;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.api-code-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.api-code-tab {
+    background-color: transparent;
+    border: none;
+    color: #a89284;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+}
+
+.api-code-tab:hover {
+    color: #e8d5d1;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.api-code-tab.active {
+    background-color: #2a2826;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.api-copy-btn {
+    background-color: var(--color-secondary);
+    border: none;
+    color: white;
+    padding: 0.4rem 0.75rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.api-copy-btn:hover {
+    background-color: var(--color-primary);
+}
+
+.api-code-content {
+    background-color: #2a2826;
+    padding: 1.25rem;
+    border-radius: 0 0 4px 4px;
+    overflow-x: auto;
+}
+
+.api-code-example {
+    display: none;
+}
+
+.api-code-example.active {
+    display: block;
+}
+
+.api-code-content pre {
+    margin: 0;
+    color: #e8d5d1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.api-code-content .string { color: var(--color-accent); }
+.api-code-content .number { color: var(--color-light); }
+.api-code-content .boolean { color: var(--color-secondary); }
+.api-code-content .null { color: var(--color-secondary); }
+.api-code-content .key { color: #fcb5b5; }
+.api-code-content .comment { color: #a89284; font-style: italic; }
+
+.api-info-box {
+    background-color: var(--color-light);
+    border-left: 3px solid var(--color-secondary);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    line-height: 1.7;
+}
+
+.api-info-box strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* API Demo Responsive */
+@media (max-width: 1200px) {
+    .api-demo-container {
+        flex-direction: column;
+    }
+    .api-demo-nav {
+        width: 100%;
+        padding: 1.5rem 0;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .api-nav-section {
+        display: inline-block;
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+        vertical-align: top;
+    }
+    .api-demo-content {
+        flex-direction: column;
+    }
+    .api-demo-left,
+    .api-demo-right {
+        width: 100%;
+        max-height: none;
+    }
+    .api-demo-right {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .api-demo-intro {
+        padding: 0 1rem;
+    }
+    .api-demo-left,
+    .api-demo-right {
+        padding: 1.5rem;
+    }
 }
 
 /* About Page Styles */

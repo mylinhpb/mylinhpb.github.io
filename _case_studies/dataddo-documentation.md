@@ -16,86 +16,56 @@ link: "https://docs.dataddo.com"
 
 ## The Challenge
 
-When I joined Dataddo as Knowledge Base Manager in April 2022, the documentation had **limited coverage with many gaps**. As a SaaS ETL platform with hundreds of data source connectors, the product needed:
+When I joined Dataddo as Knowledge Base Manager in April 2022, the documentation required significant restructuring. Content gaps and outdated information had accumulated as the platform evolved, and the existing information architecture made navigation difficult for both users and internal teams.
 
-- **Comprehensive connector documentation** for 400+ data sources
-- **Integration guides** showing how to set up data pipelines
-- **Developer documentation** for API usage and custom implementations
-- **Clear information architecture** to help users find the right connector quickly
+The fragmentation manifested in specific ways. For example, sync frequency information appeared across multiple locations—FAQ, source creation guides, and troubleshooting articles—with inconsistent or contradictory details. Similar patterns affected other topics, where information was distributed across disconnected articles without clear linking or hierarchy.
 
-The main challenges were:
-- Filling documentation gaps across hundreds of connectors
-- Creating consistent structure for diverse data sources
-- Scaling content creation to keep pace with new connectors
-- Rebuilding IA to improve findability
+The navigation structure reflected organic growth rather than intentional design. The FAQ had become a repository for various topics, many of which warranted dedicated articles. Content organization lacked clear categorization principles, making information retrieval challenging even for internal Solutions teams familiar with the platform.
 
-## The Approach
+As my first technical writing role, this project required learning documentation principles while implementing solutions. The structural issues were evident, and the need for systematic reorganization was clear.
 
-### 1. Information Architecture Redesign
+## Information Architecture Approach
 
-Completely restructured the knowledge base:
+Research into information architecture principles and frameworks, particularly Diátaxis, provided the foundation for restructuring. Effective documentation IA requires:
 
-- **Audited existing content** to identify gaps and inconsistencies
-- **Redesigned navigation** grouping connectors by category and use case
-- **Created taxonomy** for consistent connector categorization
-- **Implemented search optimization** for better discoverability
+| Requirement | Description |
+| ---|---|
+| **Task-based organization** | Organization based on tasks and concepts helps the documentation be more intuitive. | 
+| **Shallow, predictable navigation**| Navigation must allow users to find information within minimal clicks. | 
+| **Clear content type separation** | Each piece of content must have a main purpose, e.g., references need to be different from resources. | 
 
-### 2. Content Standardization
+These principles guided the complete knowledge base restructuring.
 
-Established patterns for consistent documentation:
+## Scaling Connector Documentation
 
-- **Connector documentation template** with standard sections:
-  - Overview and use cases
-  - Prerequisites and authentication
-  - Configuration steps with screenshots
-  - Data schema and field mapping
-  - Troubleshooting common issues
-- **Integration guide structure** for end-to-end workflows
-- **API reference format** for technical audiences
+Dataddo's SaaS ETL platform includes 400+ data source connectors, requiring systematic prioritization and standardization.
 
-### 3. Scalable Content Creation
+Prioritization followed usage statistics. This meant documenting high-traffic connectors first, then focusing on connectors with strategic customer acquisition potential.
 
-Built a sustainable content production system:
+Initial connector documentation led to the development of templates. Once standardized templates and reusable snippets were established, documentation time decreased from several hours to 5 minutes for straightforward connectors. Complex connectors with custom authorization or unique configuration requirements continued to require comprehensive testing and detailed documentation.
 
-- **Worked closely with Engineering and Product** to understand connector specifications
-- **Created 400+ connector documents** following standardized templates
-- **Wrote comprehensive integration guides** for common data pipeline scenarios
-- **Documented API endpoints** with code examples in multiple languages
+## Cross-Functional Partnership
 
-### 4. Cross-Functional Partnership
+The documentation role expanded beyond content creation to strategic partnership across teams. Developers and product managers consulted on feature documentation and content development. Solutions teams used the documentation as their primary information resource. Release notes became the organization's single source of truth for feature tracking and product updates.
 
-Served as documentation partner for product development:
+One significant collaboration involved aligning with Marketing on content strategy. Marketing sought benefit-focused, engaging language similar to marketing materials. Technical documentation, however, serves users seeking rapid problem resolution rather than product evaluation.
 
-- **Advised on documentation scope** for new features and connectors
-- **Reviewed product changes** for documentation impact
-- **Collaborated with Support team** to identify common user pain points
-- **Participated in product planning** to ensure documentation readiness at launch
+Resolution came through content type clarification. Marketing's objectives aligned with technical blog posts and educational tutorials—content that combines technical information with persuasive elements. Documentation maintains its distinct purpose: enabling efficient problem-solving. Clarifying these distinct content purposes and audiences resolved the strategic misalignment.
 
-## Key Deliverables
+## Impact
 
-- **Rebuilt information architecture** optimizing for findability and scalability
-- **700+ articles** covering user guides, integration guides, and API documentation
-- **400+ data source connector documents** with consistent structure
-- **Comprehensive integration guides** for common ETL scenarios
-- **API documentation** with code examples and reference materials
-- **Documentation standards** and templates for ongoing content creation
+Ticket monitoring revealed that approximately one in three customer tickets could be resolved through documentation links, achieving a **30% ticket deflection rate**.
 
-## Impact & Results
+The consistent documentation structure enabled developers to independently configure data pipelines and troubleshoot issues. Standardized connector documentation provided predictable information architecture regardless of connector selection.
 
-### Support Ticket Reduction
-Reduced support tickets by **30%** through comprehensive, searchable documentation that enables self-service.
+Monitoring searches without results created a feedback loop for identifying documentation gaps. This data-driven approach enabled continuous coverage improvement and prevented recurring support issues.
 
-### Developer Self-Service
-Developers can now set up data pipelines and troubleshoot issues independently, significantly reducing time-to-value.
+## Key Insights
 
-### Improved User Experience
-Consistent connector documentation structure makes it easy for users to find configuration information quickly, regardless of which connector they're using.
-
-### Scalable Documentation System
-Established templates and patterns enable rapid documentation of new connectors as they're released, keeping docs in sync with product.
-
-### Engineering Partnership
-Became the go-to resource for documentation strategy, regularly advising Engineering and Product teams on documentation best practices.
+* **Information architecture determines usability.** Content quality becomes irrelevant when users cannot locate information. Structural redesign represented the highest-impact intervention.
+* **Templates enable systematic scaling.** Standardized documentation patterns made consistent, efficient documentation of hundreds of connectors achievable.
+* **Content types serve distinct purposes.** Understanding the fundamental differences between documentation (problem-solving) and marketing content (persuasion) preserves the effectiveness of both.
+* **Data-driven iteration improves coverage.** Monitoring search failures and ticket resolution patterns provides actionable insights for continuous documentation improvement.
 
 ## Technologies & Tools
 
@@ -105,18 +75,6 @@ Became the go-to resource for documentation strategy, regularly advising Enginee
 - **API Testing:** Postman
 - **Collaboration:** Jira, Confluence
 - **Cloud Platforms:** Google Cloud, BigQuery, various data sources
-
-## Lessons Learned
-
-**Templates enable scale:** Standardized documentation structure made it possible to document hundreds of connectors consistently and efficiently.
-
-**Information architecture is foundation:** Rebuilding the IA was crucial for user success—even great content fails if users can't find it.
-
-**Partnership with Engineering is essential:** Close collaboration with technical teams ensured documentation accuracy and completeness.
-
-**Focus on common patterns:** Identifying shared patterns across connectors allowed for efficient documentation that worked for multiple use cases.
-
-**SEO matters:** Optimizing documentation for search (both internal and external) significantly improved discoverability and ticket deflection.
 
 
 [View Live Documentation →](https://docs.dataddo.com){:target="_blank" rel="noopener noreferrer" class="btn btn-primary"}

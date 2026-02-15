@@ -52,12 +52,12 @@ Common cryptographic algorithms include:
 Different SSL certificates serve varying security needs:
 | Certificate Type| 	Purpose	Validation| 	Use Case|
 | ---|--- |---|
-| Domain Validated (DV)| 	Ensures domain ownership	Basic validation, often automated through email	| Blogs, personal websites, small businesses
-| Organization Validated (OV)	| Verifies domain ownership and organization	Thorough organization details validation| 	Businesses, e-commerce sites for enhanced user trust
-| Extended Validated (EV)| 	Highest level of validation, emphasizes trust	Rigorous validation including legal and physical checks	| High-profile websites, financial institutions, e-commerce platforms for maximum user confidence
-| Wildcard Certificates	| Secures a domain and its subdomains	Typically, DV or OV for the main domain, covers subdomains| 	Organizations with multiple subdomains, that need cost-effective security
-| Multi-Domain (SAN)| 	Secures multiple domains within a single certificate	Depends on the type chosen for each domain (DV, OV, EV)| 	Businesses with several websites under different domains
-| Code Signing | Certificates	Ensures integrity of software by digitally signing code	Verifies publisher's identity and code integrity	| Software developers and publishers to establish trust in downloaded applications
+| Domain Validated (DV)| 	Ensures domain ownership	Basic validation, often automated through email	| Blogs, personal websites, small businesses|
+| Organization Validated (OV)	| Verifies domain ownership and organization	Thorough organization details validation| 	Businesses, e-commerce sites for enhanced user trust|
+| Extended Validated (EV)| 	Highest level of validation, emphasizes trust	Rigorous validation including legal and physical checks	| High-profile websites, financial institutions, e-commerce platforms for maximum user confidence|
+| Wildcard Certificates	| Secures a domain and its subdomains	Typically, DV or OV for the main domain, covers subdomains| 	Organizations with multiple subdomains, that need cost-effective security|
+| Multi-Domain (SAN)| 	Secures multiple domains within a single certificate	Depends on the type chosen for each domain (DV, OV, EV)| 	Businesses with several websites under different domains|
+| Code Signing | Certificates	Ensures integrity of software by digitally signing code	Verifies publisher's identity and code integrity	| Software developers and publishers to establish trust in downloaded applications|
 
 ### Obtain an SSL Certificate
 
@@ -87,18 +87,20 @@ To revoke or renew your SSL certificate, contact your CA.
 
 ## SL Deployment Best Practices
 
-1.	**Use the Latest Protocols**: Adopt the latest SSL protocol version for improved security and performance.
-2.	**Strong Cipher Suites**: Choose secure and up-to-date cryptographic algorithms. Prioritize Perfect Forward Secrecy (PFS) algorithms like ECDHE for key exchange.
-3.	**Key Length Considerations**: If you're using RSA, opt for key lengths of 2048 bits or higher. For ECC (Elliptic Curve Cryptography), consider curves with equivalent strength to RSA keys.
-4.	**Certificate Management**: Ensure SSL certificates are regularly renewed before expiration to avoid service disruptions. Safeguard private keys and use Hardware Security Modules (HSMs) for added security.
-5.	**Implement HTTP Strict Transport Security (HSTS)**: Use HSTS headers to instruct browsers to only connect via HTTPS to reduce the risk of man-in-the-middle attacks.
-6.	**Content Security**: Ensure all resources on a secure page are loaded via HTTPS to prevent mixed content issues that can compromise security.
-7.	**Secure Renegotiation**: Mitigate vulnerabilities associated with SSL renegotiation by disabling it, unless necessary.
-8.	**Security Headers**: Implement Content Security Policy (CSP) headers to mitigate risks associated with content injection attacks like XSS (Cross-Site Scripting).
-9.	**Regular Security Audits**: Conduct regular penetration tests to identify and address potential vulnerabilities in your SSL implementation.
-10.	**Monitoring and Logging**: Collect and analyze logs centrally to detect and respond to security incidents promptly.
-11.	**Disable Deprecated Protocols and Algorithms**: Disable deprecated SSL protocols and weak cipher suites to prevent vulnerabilities associated with outdated standards.
-12.	**Keep Software Updated**: Regularly update your web server software and SSL libraries to patch vulnerabilities and stay current with security best practices.
-13.	**Implement Rate Limiting**: Implement rate limits on login pages to defend against brute force attacks.
-14.	Compliance with Regulations: Ensure SSL/TLS deployment aligns with regulatory requirements relevant to your industry, such as GDPR or PCI DSS.
-15.	Educate Users: Educate users to recognize SSL indicators like padlock icons, which promotes trust in the security of the connection.
+| Best Practice | Description |
+|---|---|
+| **Use the Latest Protocols** | Adopt the latest SSL protocol version for improved security and performance.|
+| **Strong Cipher Suites** | Choose secure and up-to-date cryptographic algorithms. Prioritize Perfect Forward Secrecy (PFS) algorithms like ECDHE for key exchange.|
+| **Key Length Considerations** | If you're using RSA, opt for key lengths of 2048 bits or higher. For ECC (Elliptic Curve Cryptography), consider curves with equivalent strength to RSA keys.|
+| **Certificate Management** | Ensure SSL certificates are regularly renewed before expiration to avoid service disruptions. Safeguard private keys and use Hardware Security Modules (HSMs) for added security.|
+| **Implement HTTP Strict Transport Security (HSTS)** | Use HSTS headers to instruct browsers to only connect via HTTPS to reduce the risk of man-in-the-middle attacks.|
+| **Content Security** | Ensure all resources on a secure page are loaded via HTTPS to prevent mixed content issues that can compromise security.|
+| **Secure Renegotiation** | Mitigate vulnerabilities associated with SSL renegotiation by disabling it, unless necessary.|
+| **Security Headers** | Implement Content Security Policy (CSP) headers to mitigate risks associated with content injection attacks like XSS (Cross-Site Scripting).|
+| **Regular Security Audits** | Conduct regular penetration tests to identify and address potential vulnerabilities in your SSL implementation.|
+| 	**Monitoring and Logging** | Collect and analyze logs centrally to detect and respond to security incidents promptly.|
+| 	**Disable Deprecated Protocols and Algorithms** | Disable deprecated SSL protocols and weak cipher suites to prevent vulnerabilities associated with outdated standards.|
+| 	**Keep Software Updated** | Regularly update your web server software and SSL libraries to patch vulnerabilities and stay current with security best practices.|
+| 	**Implement Rate Limiting** | Implement rate limits on login pages to defend against brute force attacks.|
+| 	**Compliance with Regulations** | Ensure SSL/TLS deployment aligns with regulatory requirements relevant to your industry, such as GDPR or PCI DSS.|
+| 	**Educate Users** | Educate users to recognize SSL indicators like padlock icons, which promotes trust in the security of the connection.|

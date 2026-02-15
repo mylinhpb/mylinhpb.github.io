@@ -16,96 +16,83 @@ link: "https://help.dawiso.com"
 
 ## The Challenge
 
-When I joined Dawiso as Documentation Specialist in April 2024, the company had **no existing documentation structure or standards**. As a data governance platform with complex JSON-based configuration packages and automation rules, the product needed comprehensive documentation to serve multiple audiences:
+When I joined Dawiso as Documentation Specialist in April 2024, my initial task was to manage and expand the existing documentation. After evaluating both the product and documentation structure, I identified a need for comprehensive restructuring rather than incremental updates.
 
-- **Developers** working with JSON package configurations
-- **Business users** managing data governance workflows
-- **Administrators** setting up and maintaining the platform
+The existing knowledge was distributed across outdated articles, Slack conversations, and JIRA tickets—valuable information, but difficult to access for new users or those seeking quick answers. The documentation lacked a cohesive structure that could effectively serve its diverse audience.
 
-The challenge was to build a complete documentation ecosystem from scratch that would:
-- Enable self-service for technical and non-technical users
-- Reduce support burden on the engineering team
-- Scale with rapid product development
-- Establish sustainable documentation practices
+The platform itself presented additional complexity. As a data governance tool with extensive JSON-based configuration packages, it required clear explanation of both abstract concepts and technical implementation. Data governance spans multiple use cases and workflows, making it essential to establish a clear foundation before documenting specific features.
 
-## The Approach
+## Establishing the Foundation
 
-### 1. Information Architecture Design
+I began by using the platform from a user's perspective, documenting my interactions: interface elements, actions, objectives, and decision points. This hands-on approach informed the structure and content priorities for the initial user documentation.
 
-I started by designing the complete information architecture from zero:
+Parallel to this, I conducted interviews with subject matter experts to understand client use cases and pain points. These conversations revealed three primary user groups with distinct needs: developers implementing JSON configurations, business users managing governance workflows, and administrators maintaining platform infrastructure.
 
-- **Analyzed user needs** through support tickets, user interviews, and product team discussions
-- **Mapped content types** following the Diátaxis framework (tutorials, how-to guides, reference, resources)
-- **Created navigation structure** optimizing for findability and logical grouping
-- **Designed content templates** for consistency across different documentation types
+## Technical Validation: JSON Configuration Packages
 
-### 2. Documentation Standards & Workflow
+JSON configuration packages represented the most significant technical challenge. With numerous configuration options and specific compatibility requirements, these packages required thorough understanding to document effectively.
 
-Established sustainable documentation practices:
+The standard approach—modifying existing packages—proved effective for experienced users but created obstacles for those new to the system. Identifying errors in unfamiliar code structures consumed significant time without building foundational knowledge.
 
-- **Docs-as-Code workflow** using Markdown and Git for version control
-- **Style guide** defining voice, tone, and formatting standards
-- **Content review process** with engineering and product teams
-- **Release documentation process** for major and minor releases
+I shifted to a systematic approach: understanding each property's function, testing configurations methodically, and validating behavior. This process, while initially slower, enabled me to create tutorials that guided users from first principles rather than requiring them to work backward from complex examples.
 
-### 3. Content Creation & Technical Validation
+The validation process covered 100+ JSON configurations, each contributing to a comprehensive understanding of the system's architecture and capabilities.
 
-Built comprehensive documentation covering all product areas:
+## Information Architecture Design
 
-- **80+ developer tutorials** for JSON package configuration and automation rules
-- **Validated 100+ JSON configurations** to ensure technical accuracy
-- **User guides** for business users and administrators
-- **Reference documentation** for API endpoints and configuration options
-- **Release notes** for 15+ releases, including major releases with LTS documentation
+With product knowledge established, I designed the documentation's information architecture using Figma and FigJam to map content relationships and hierarchies. The structure prioritized intuitive navigation and logical content grouping while minimizing fragmentation.
 
-### 4. Dawiso Academy
+I applied the Diátaxis framework as a guiding principle, organizing content into tutorials, how-to guides, reference materials, and resources. This structure ensures each content type serves its intended purpose and audience need.
 
-Co-created a video-based learning platform:
+## Documentation Workflow Development
 
-- **10+ educational videos** covering key platform features
-- **Step-by-step tutorials** demonstrating real-world use cases
-- **Best practices guides** for common scenarios
+Prior to my arrival, no formal process existed for tracking documentation needs or status. Development tickets reached completion without documentation verification, creating gaps and making it difficult to identify what required documentation.
 
-## Key Deliverables
+I designed and led implementation of an integrated documentation workflow that connected development and documentation processes. The workflow operates as follows:
 
-- **Complete documentation system** with 500+ articles
-- **Information architecture** designed for scalability and self-service
-- **Developer documentation** with comprehensive JSON tutorials and references
-- **Dawiso Academy** with video content and interactive learning
-- **Documentation standards and processes** for ongoing content creation
-- **Release documentation workflow** integrated with product development
+1. Development tickets include final stage classification: user documentation, developer documentation, or release notes
+2. When developers mark tickets as complete, I review and transition them to "Done and Documented"
+3. Tickets automatically create corresponding items in the documentation JIRA, progressing through the documentation lifecycle to publication
+4. All stakeholders have visibility into documentation status for each feature
 
-## Impact & Results
+This workflow established accountability, eliminated documentation gaps, and provided clear communication channels between development and documentation teams.
 
-### Support Ticket Reduction
-Achieved **40% support ticket deflection** through strategic documentation that enables users to find answers independently.
+## Cross-Functional Collaboration
 
-### Improved Efficiency
-Delivered higher ticket deflection with **30% fewer articles** compared to previous documentation systems, demonstrating the power of well-designed information architecture.
+Documentation development involved close collaboration with product management, engineering, and customer support teams. Product and engineering provided technical insights and feature walkthroughs. Customer support identified recurring user issues, informing documentation priorities.
 
-### Developer Enablement
-Developers can now implement JSON configurations and automation rules without contacting support, significantly reducing engineering team interruptions.
+To accommodate team bandwidth constraints, I adapted communication approaches to individual preferences—whether Slack messages, brief calls, or asynchronous JIRA reviews. The most effective workflow involved independent feature exploration and draft creation, followed by focused review requests. This approach minimized the time required from stakeholders while ensuring technical accuracy.
 
-### Scalable Foundation
-Created documentation infrastructure that scales with product growth, with clear patterns for adding new content as features are released.
+## Impact
+
+Post-launch monitoring revealed that approximately every second customer ticket could be resolved by providing documentation links, achieving **40% ticket deflection**. This represented a significant improvement over baseline metrics, attributed to the comprehensive restructuring and systematic approach to content creation.
+
+The documentation enabled developers to implement JSON configurations and automation rules independently, reducing support dependencies. Internal teams adopted the documentation as a primary resource for assisting clients and partners, creating a knowledge-sharing foundation that extended beyond direct customer interactions.
+
+## Dawiso Academy: Video Learning Content
+
+In parallel with written documentation, leadership initiated Dawiso Academy, a video-based learning platform. I developed the syllabus and scripts, and when no other team members were available to present, took on the presentation role—a new challenge requiring video production and presentation skills.
+
+The project produced 10+ educational videos covering key platform features and established a sustainable production workflow for future content.
+
+For more information, see the [Dawiso Academy Case Study](/case_studies/dawiso-academy).
+
+## Key Insights
+
+|Key Insight| Description|
+|---|---|
+|**Product understanding precedes documentation.**|Effective documentation requires comprehensive product knowledge and consideration of how content integrates within the broader information ecosystem and user workflows.|
+|**Collaboration efficiency matters.**|Reducing stakeholder time investment through independent exploration and focused review requests accelerates documentation development while maintaining technical accuracy.|
+|**Technical validation ensures user trust.**|Testing configurations before documentation prevents user frustration and establishes documentation credibility.|
+|**Format diversity serves different learning styles.**|Combining written documentation with video content accommodates varied user preferences and learning contexts.|
 
 ## Technologies & Tools
 
-- **Documentation Platform:** Document360
+- **Documentation Platform:** Dawiso Documentation Application
 - **Source Control:** Git, GitHub
 - **Content Format:** Markdown, HTML, JSON, SQL
-- **Video Production:** Camtasia
-- **Collaboration:** Jira, Asana, Confluence
-
-## Lessons Learned
-
-**Starting from zero is an advantage:** Building documentation architecture from scratch allowed for optimal structure without legacy constraints.
-
-**Validation is crucial:** Testing every JSON configuration before documenting ensured technical accuracy and user trust.
-
-**Video complements text:** The Dawiso Academy videos significantly improved user onboarding for visual learners.
-
-**Information architecture drives impact:** Strategic IA design was the key factor in achieving higher ticket deflection with fewer articles.
+- **Screenshots:** Figma, FigJam
+- **Collaboration:** Jira, Confluence, Slack
 
 
 [View Live Documentation →](https://help.dawiso.com){:target="_blank" rel="noopener noreferrer" class="btn btn-primary"}
