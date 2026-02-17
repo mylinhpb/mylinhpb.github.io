@@ -7,6 +7,7 @@ tags: [Reference]
 secondary_tags: [API Documentation, Developer Experience, Design]
 ---
 
+{::nomarkdown}
 <div class="api-demo-intro">
   <h1>Weather API Documentation</h1>
   <p>This interactive example demonstrates comprehensive API documentation design with navigation, multiple endpoints, multi-language code samples, and developer-friendly features.</p>
@@ -631,3 +632,4 @@ function copyCode(endpoint, event) {
   });
 }
 </script>
+{:/nomarkdown}
