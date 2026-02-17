@@ -18,18 +18,18 @@ secondary_tags: [API Documentation, Developer Experience, Design]
     <div class="api-demo-nav">
       <div class="api-nav-section">
         <h3>Getting Started</h3>
-        <div class="api-nav-item active" onclick="showEndpoint('auth')">Authentication</div>
-        <div class="api-nav-item" onclick="showEndpoint('errors')">Error Codes</div>
+        <div class="api-nav-item active" onclick="showEndpoint('auth', event)">Authentication</div>
+        <div class="api-nav-item" onclick="showEndpoint('errors', event)">Error Codes</div>
       </div>
       <div class="api-nav-section">
         <h3>Endpoints</h3>
-        <div class="api-nav-item" onclick="showEndpoint('current')">
+        <div class="api-nav-item" onclick="showEndpoint('current', event)">
           <span class="method-badge method-get">GET</span>Current Weather
         </div>
-        <div class="api-nav-item" onclick="showEndpoint('forecast')">
+        <div class="api-nav-item" onclick="showEndpoint('forecast', event)">
           <span class="method-badge method-get">GET</span>7-Day Forecast
         </div>
-        <div class="api-nav-item" onclick="showEndpoint('alerts')">
+        <div class="api-nav-item" onclick="showEndpoint('alerts', event)">
           <span class="method-badge method-post">POST</span>Weather Alerts
         </div>
       </div>
@@ -303,11 +303,11 @@ secondary_tags: [API Documentation, Developer Experience, Design]
           <div class="api-code-block">
             <div class="api-code-header">
               <div class="api-code-tabs">
-                <button class="api-code-tab active" onclick="showCode('auth', 'curl')">cURL</button>
-                <button class="api-code-tab" onclick="showCode('auth', 'python')">Python</button>
-                <button class="api-code-tab" onclick="showCode('auth', 'javascript')">JavaScript</button>
+                <button class="api-code-tab active" onclick="showCode('auth', 'curl', event)">cURL</button>
+                <button class="api-code-tab" onclick="showCode('auth', 'python', event)">Python</button>
+                <button class="api-code-tab" onclick="showCode('auth', 'javascript', event)">JavaScript</button>
               </div>
-              <button class="api-copy-btn" onclick="copyCode('auth')">Copy</button>
+              <button class="api-copy-btn" onclick="copyCode('auth', event)">Copy</button>
             </div>
             <div class="api-code-content" id="auth-code-content">
               <div class="api-code-example active" id="auth-curl">
@@ -387,11 +387,11 @@ fetch(<span class="string">'https://api.weather.example/v1/current?location=NewY
           <div class="api-code-block">
             <div class="api-code-header">
               <div class="api-code-tabs">
-                <button class="api-code-tab active" onclick="showCode('current', 'curl')">cURL</button>
-                <button class="api-code-tab" onclick="showCode('current', 'python')">Python</button>
-                <button class="api-code-tab" onclick="showCode('current', 'javascript')">JavaScript</button>
+                <button class="api-code-tab active" onclick="showCode('current', 'curl', event)">cURL</button>
+                <button class="api-code-tab" onclick="showCode('current', 'python', event)">Python</button>
+                <button class="api-code-tab" onclick="showCode('current', 'javascript', event)">JavaScript</button>
               </div>
-              <button class="api-copy-btn" onclick="copyCode('current')">Copy</button>
+              <button class="api-copy-btn" onclick="copyCode('current', event)">Copy</button>
             </div>
             <div class="api-code-content" id="current-code-content">
               <div class="api-code-example active" id="current-curl">
@@ -456,11 +456,11 @@ fetch(<span class="string">`https://api.weather.example/v1/current?${params}`</s
           <div class="api-code-block">
             <div class="api-code-header">
               <div class="api-code-tabs">
-                <button class="api-code-tab active" onclick="showCode('forecast', 'curl')">cURL</button>
-                <button class="api-code-tab" onclick="showCode('forecast', 'python')">Python</button>
-                <button class="api-code-tab" onclick="showCode('forecast', 'javascript')">JavaScript</button>
+                <button class="api-code-tab active" onclick="showCode('forecast', 'curl', event)">cURL</button>
+                <button class="api-code-tab" onclick="showCode('forecast', 'python', event)">Python</button>
+                <button class="api-code-tab" onclick="showCode('forecast', 'javascript', event)">JavaScript</button>
               </div>
-              <button class="api-copy-btn" onclick="copyCode('forecast')">Copy</button>
+              <button class="api-copy-btn" onclick="copyCode('forecast', event)">Copy</button>
             </div>
             <div class="api-code-content" id="forecast-code-content">
               <div class="api-code-example active" id="forecast-curl">
@@ -518,11 +518,11 @@ for day in forecast[<span class="string">"days"</span>]:
           <div class="api-code-block">
             <div class="api-code-header">
               <div class="api-code-tabs">
-                <button class="api-code-tab active" onclick="showCode('alerts', 'curl')">cURL</button>
-                <button class="api-code-tab" onclick="showCode('alerts', 'python')">Python</button>
-                <button class="api-code-tab" onclick="showCode('alerts', 'javascript')">JavaScript</button>
+                <button class="api-code-tab active" onclick="showCode('alerts', 'curl', event)">cURL</button>
+                <button class="api-code-tab" onclick="showCode('alerts', 'python', event)">Python</button>
+                <button class="api-code-tab" onclick="showCode('alerts', 'javascript', event)">JavaScript</button>
               </div>
-              <button class="api-copy-btn" onclick="copyCode('alerts')">Copy</button>
+              <button class="api-copy-btn" onclick="copyCode('alerts', event)">Copy</button>
             </div>
             <div class="api-code-content" id="alerts-code-content">
               <div class="api-code-example active" id="alerts-curl">
@@ -591,7 +591,7 @@ print(response.json())</pre>
 </div>
 
 <script>
-function showEndpoint(endpointId) {
+function showEndpoint(endpointId, event) {
   document.querySelectorAll('.api-endpoint-section').forEach(section => {
     section.classList.remove('active');
   });
@@ -604,7 +604,7 @@ function showEndpoint(endpointId) {
   event.currentTarget.classList.add('active');
 }
 
-function showCode(endpoint, language) {
+function showCode(endpoint, language, event) {
   const container = document.getElementById(endpoint + '-code-content');
   const examples = container.querySelectorAll('.api-code-example');
   const tabs = container.parentElement.querySelectorAll('.api-code-tab');
@@ -616,7 +616,7 @@ function showCode(endpoint, language) {
   event.currentTarget.classList.add('active');
 }
 
-function copyCode(endpoint) {
+function copyCode(endpoint, event) {
   const container = document.getElementById(endpoint + '-code-content');
   const activeExample = container.querySelector('.api-code-example.active');
   const code = activeExample.textContent;
